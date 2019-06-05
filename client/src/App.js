@@ -40,31 +40,30 @@ class App extends Component {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {
-          this.state.connectedData.map(coordinate => {
-            return (<Marker position={[coordinate.lat, coordinate.lon]} icon={connectedIcon} key={coordinate.id}>
+          this.state.connectedData.map(coordinate => (<Marker position={[coordinate.lat, coordinate.lon]} icon={connectedIcon} key={coordinate.id}>
               <Popup>
                 {coordinate.text}
               </Popup>
             </Marker>)
-        })
+        )
       }
         {
-          this.state.assistanceData.map(coordinate => {
-            return (<Marker position={[coordinate.lat, coordinate.lon]} icon={assistanceIcon} key={coordinate.id}>
+          this.state.assistanceData.map(coordinate => (
+            (<Marker position={[coordinate.lat, coordinate.lon]} icon={assistanceIcon} key={coordinate.id}>
               <Popup>
                 {coordinate.text}
               </Popup>
             </Marker>)
-        })
+        ))
       }
         {
-          this.state.noAssistanceData.map(coordinate => {
-            return (<Marker position={[coordinate.lat, coordinate.lon]} icon={noAssistanceIcon} key={coordinate.id}>
+          this.state.noAssistanceData.map(coordinate => (
+            (<Marker position={[coordinate.lat, coordinate.lon]} icon={noAssistanceIcon} key={coordinate.id}>
               <Popup>
                 {coordinate.text}
               </Popup>
             </Marker>)
-        })
+        ))
       }
       </Map>
     );
