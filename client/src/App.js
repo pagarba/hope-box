@@ -7,12 +7,15 @@ import noAssistanceURL from './images/orangeMarker.svg';
 import './App.css';
 
 class App extends Component {
-  state = {
-    lat: 51.505,
-    lng: -0.09,
-    zoom: 13,
+  constructor(props) {
+    super(props) 
+      this.state = {
+        connectedData: [{id: 1, lat: 51.4969, lon: -0.087, text: 'device is connected'}, {id: 2, lat: 51.496, lon: -0.096, text: 'connected!'}],
+        assistanceData: [{id: 1, lat: 51.50, lon: -0.08, text: 'Need Help'}, {id: 2, lat: 51.5, lon: -0.096, text: 'Assistance'}],
+        noAssistanceData: [{id: 1, lat: 51.51, lon: -0.09, text: 'no assistance needed'}, {id: 2, lat: 51.5, lon: -0.095, text: 'no help needed'}]
+      }
   }
-
+  
   render() {
     const connectedIcon = L.icon({
       iconUrl: connectedURL,
@@ -29,28 +32,40 @@ class App extends Component {
       iconSize: [40, 40]
     });
 
-    const position = [this.state.lat, this.state.lng];
+    const position = [51.505, -0.09];
     return (
-      <Map className="map" center={position} zoom={this.state.zoom}>
+      <Map className="map" center={position} zoom={13}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position} icon={connectedIcon}>
-          <Popup>
-            Connected!
-          </Popup>
-        </Marker>
-        <Marker position={[51.505, -0.08]} icon={assistanceIcon}>
-          <Popup>
-            Assitance Needed!
-          </Popup>
-        </Marker>
-        <Marker position={[51.505, -0.07]} icon={noAssistanceIcon}>
-          <Popup>
-            Assistance not needed!
-          </Popup>
-        </Marker>
+        {
+          this.state.connectedData.map(coordinate => {
+            return (<Marker position={[coordinate.lat, coordinate.lon]} icon={connectedIcon} key={coordinate.id}>
+              <Popup>
+                {coordinate.text}
+              </Popup>
+            </Marker>)
+        })
+      }
+        {
+          this.state.assistanceData.map(coordinate => {
+            return (<Marker position={[coordinate.lat, coordinate.lon]} icon={assistanceIcon} key={coordinate.id}>
+              <Popup>
+                {coordinate.text}
+              </Popup>
+            </Marker>)
+        })
+      }
+        {
+          this.state.noAssistanceData.map(coordinate => {
+            return (<Marker position={[coordinate.lat, coordinate.lon]} icon={noAssistanceIcon} key={coordinate.id}>
+              <Popup>
+                {coordinate.text}
+              </Popup>
+            </Marker>)
+        })
+      }
       </Map>
     );
   }
