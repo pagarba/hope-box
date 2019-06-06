@@ -11,3 +11,11 @@ body {
 .map {
     height: 100%;
 }
+
+.card {
+    z-index: 999;
+    position: absolute;
+    top: 8em;
+    left: 3em;
+    width: 25em; 
+}

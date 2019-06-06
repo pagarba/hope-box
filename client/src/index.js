@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import 'leaflet/dist/leaflet.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import configureStore from './core/store/configureStore';
 import StreetMap from './components/Map/StreetMap';
 import * as serviceWorker from './serviceWorker';
