@@ -3,15 +3,14 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import 'leaflet/dist/leaflet.css';
 import configureStore from './core/store/configureStore';
-import './index.css';
-import App from './App';
+import StreetMap from './components/Map/StreetMap';
 import * as serviceWorker from './serviceWorker';
 
 const store = configureStore();
 
 let app = (
     <Provider store={store}>
-        <App />
+        <StreetMap />
     </Provider>
 );
 

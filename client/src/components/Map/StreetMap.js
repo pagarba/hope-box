@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import L from 'leaflet';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
-import connectedURL from './images/greenMarker.svg';
-import assistanceURL from './images/redMarker.svg';
-import noAssistanceURL from './images/orangeMarker.svg';
-import './App.css';
+import connectedURL from '../../images/greenMarker.svg';
+import assistanceURL from '../../images/redMarker.svg';
+import noAssistanceURL from '../../images/orangeMarker.svg';
+import './styles/StreetMap.css';
 
-class App extends Component {
+class StreetMap extends Component {
   constructor(props) {
     super(props) 
       this.state = {
@@ -72,4 +72,4 @@ class App extends Component {
   
 }
 
-export default App;
+export default StreetMap;
