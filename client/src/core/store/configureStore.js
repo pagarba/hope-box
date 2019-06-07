@@ -1,12 +1,12 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import coordinatesReducer from '../reducers/coordinatesReducer';
+import dataReducer from '../reducers/dataReducer';
 import reduxThunk from 'redux-thunk';
 
 
 export default () => {
     const store = createStore(
         combineReducers({
-            coordinatesReducer
+            data: dataReducer
         }),
         applyMiddleware(reduxThunk))
 
