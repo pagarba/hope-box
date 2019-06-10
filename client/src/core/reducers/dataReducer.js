@@ -1,5 +1,6 @@
 const initalState = {
-    data: []
+    data: [],
+    coordinates: {}
 }
 
 export default (state = initalState, action) => {
@@ -7,7 +8,12 @@ export default (state = initalState, action) => {
         case 'FETCH_DATA':
             return {
                 ...state,
-                data: action.data
+                data: action.data   
+            }
+        case 'SEND_COORDINATES':
+            return {
+                ...state,
+                coordinates: action.coordinates
             }
         default:
             return state;

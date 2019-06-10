@@ -1,0 +1,11 @@
+.card {
+    height: 30em;
+    overflow: scroll;
+}
+
+.body {
+    margin-top: .8em;
+    border-style: solid;
+    display: flex;
+    justify-content: space-between;
+}

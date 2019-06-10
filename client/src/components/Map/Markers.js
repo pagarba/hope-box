@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import L from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
 import { connect } from 'react-redux'
-import connectedURL from '../../images/greenMarker.svg';
-import assistanceURL from '../../images/redMarker.svg';
+import responseURL from '../../images/greenMarker.svg';
+import noResponseURL from '../../images/redMarker.svg';
 import noAssistanceURL from '../../images/orangeMarker.svg';
-import { action_creator } from '../../core/actions/coordinates';
+import { action_creator } from '../../core/actions/data';
 
 class Markers extends Component {
   componentDidMount() {
@@ -14,13 +14,13 @@ class Markers extends Component {
   }
   
   render() {
-    const connectedIcon = L.icon({
-      iconUrl: connectedURL,
+    const responseIcon = L.icon({
+      iconUrl: responseURL,
       iconSize: [40, 40] 
     });
 
-    const assistanceIcon = L.icon({
-      iconUrl: assistanceURL,
+    const noResponseIcon = L.icon({
+      iconUrl: noResponseURL,
       iconSize: [40, 40]
     });
 
@@ -29,16 +29,26 @@ class Markers extends Component {
       iconSize: [40, 40]
     });
 
+    const filterByConnection = (data) => {
+       if(data.connected) {
+        return <Marker position={[data.lat, data.lon]} icon={responseIcon} key={data.ismi}>
+          <Popup>
+            {data.text}
+          </Popup>
+        </Marker>
+      } else {
+        return <Marker position={[data.lat, data.lon]} icon={noResponseIcon} key={data.ismi}>
+          <Popup>
+            {data.text}
+          </Popup>
+        </Marker>
+      }
+    }
+
     return (
       <div>  
       {
-        this.props.data.data.map(coordinate => (
-          <Marker position={[coordinate.lat, coordinate.lon]} icon={connectedIcon} key={coordinate.ismi}>
-            <Popup>
-              {coordinate.text}
-            </Popup>
-          </Marker>)
-        )
+        this.props.data.data.map(data => filterByConnection(data))
       }
       </div>
     );
