@@ -5,6 +5,12 @@ import { action_creator, sendCoordinates } from '../../core/actions/data';
 import './styles/Sidebar.css';
 
 class Sidebar extends Component {
+  constructor(props) {
+    super(props) 
+      this.state = {
+        filter: ''
+      }
+  }
 
   componentDidMount() {
     const response = this.props.action_creator();
@@ -12,10 +18,19 @@ class Sidebar extends Component {
   }
 
   render() {
+    const handleChange = (e) => {
+      this.setState({ filter: e.target.value })
+    }
+
+    const filteredData = this.props.data.data.filter(data => {
+      return data.ismi.toString().indexOf(this.state.filter) !== -1
+    });
+
     return (
       <Card body className="card">
+        <input value={this.state.filter} onChange={handleChange}/>
         {
-          this.props.data.data.map(data => (
+          filteredData.map(data => (
             <div className="body" key={data.text}>
             <div>
               <CardTitle key={data.ismi}>{data.ismi}</CardTitle>

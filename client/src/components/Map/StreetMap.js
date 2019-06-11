@@ -5,6 +5,7 @@ import Sidebar from './Sidebar';
 import { connect } from 'react-redux';
 import './styles/StreetMap.css';
 
+
 class StreetMap extends Component {
   constructor(props) {
     super(props)
@@ -20,7 +21,6 @@ class StreetMap extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="map">
         <Map className="map" center={this.state.position} zoom={19}>

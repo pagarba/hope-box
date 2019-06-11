@@ -9,8 +9,8 @@ import { action_creator } from '../../core/actions/data';
 
 class Markers extends Component {
   componentDidMount() {
-    const response = this.props.action_creator()
-    this.setState({ data: response })
+    const response = this.props.action_creator();
+    this.setState({ data: response });
   }
   
   render() {
@@ -65,8 +65,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     action_creator: () => dispatch(action_creator())
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Markers);
 
