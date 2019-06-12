@@ -15,7 +15,37 @@ body {
 .card {
     z-index: 999;
     position: absolute;
-    top: 8em;
-    left: 3em;
-    width: 25em; 
+    top: 0.5em;
+    left: 4em;
+    width: 15em;
+    height: 9.1em; 
+}
+
+@media (min-width: 425px) {
+    .card {
+        width: 20em;
+    }
+}
+
+@media (min-width: 768px) {
+    .card {
+        width: 30em;
+        left: 9em;
+    }
+}
+
+@media (min-width: 1024px) {
+    .card {
+        width: 27em;
+        left: 4em;
+        height: 9.3em;
+    }
+}
+
+@media (min-width: 1440px) {
+    .card {
+        width: 27em;
+        left: 4em;
+        height: 13.9em
+    }
 }

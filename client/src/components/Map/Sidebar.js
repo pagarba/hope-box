@@ -23,11 +23,11 @@ class Sidebar extends Component {
           filteredData.map(data => (
             <div className="body" key={data.text}>
             <div>
-              <CardTitle key={data.ismi}>{data.ismi}</CardTitle>
-              <CardText key={data.text}>{data.text}</CardText>
+              <CardTitle className="ismi" key={data.ismi}>{data.ismi}</CardTitle>
+              <CardText className="text" key={data.text}>{data.text}</CardText>
             </div>
             <div className="button">
-              <Button onClick={() => this.props.sendCoordinates({lat: data.lat, lon: data.lon})}>Go To Marker</Button> 
+              <Button className="button" color="info" onClick={() => this.props.sendCoordinates({lat: data.lat, lon: data.lon})}>Go</Button> 
             </div> 
             </div> 
           ))

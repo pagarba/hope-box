@@ -14,17 +14,17 @@ export const send_coordinates = ({
     }
 })
 
-export const filter_data = (term) => ({
+export const filter_data = (text) => ({
     type: 'FILTER_DATA',
-    filter: term
+    filter: text
 })
 
 export const sendCoordinates = (props) => dispatch => {
     dispatch(send_coordinates(props))
 }
 
-export const filterData = (props) => dispatch => {
-    dispatch(filter_data(props))
+export const filterData = (text) => dispatch => {
+    dispatch(filter_data(text))
 }
 
 export const fetchData = () => dispatch => {

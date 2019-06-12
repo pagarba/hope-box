@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { filterData } from '../../core/actions/data';
+import { InputGroup, Input } from 'reactstrap';
 
 const SearchBar = (props) => {
     const handleChange = (e) => {
@@ -8,7 +9,9 @@ const SearchBar = (props) => {
     }
     
     return (
-        <input onChange={handleChange}/>
+        <InputGroup>
+            <Input onChange={handleChange}/>
+        </InputGroup>   
     )
 }
 
