@@ -1,34 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
-import { action_creator, sendCoordinates } from '../../core/actions/data';
+import { fetchData, sendCoordinates } from '../../core/actions/data';
+import SearchBar from './SearchBar';
 import './styles/Sidebar.css';
 
 class Sidebar extends Component {
-  constructor(props) {
-    super(props) 
-      this.state = {
-        filter: ''
-      }
-  }
-
   componentDidMount() {
-    const response = this.props.action_creator();
+    const response = this.props.fetchData();
     this.setState({ data: response });
   }
 
   render() {
-    const handleChange = (e) => {
-      this.setState({ filter: e.target.value })
-    }
-
     const filteredData = this.props.data.data.filter(data => {
-      return data.ismi.toString().indexOf(this.state.filter) !== -1
+      return data.ismi.toString().indexOf(this.props.data.filter) !== -1
     });
-
+    
     return (
       <Card body className="card">
-        <input value={this.state.filter} onChange={handleChange}/>
+        <SearchBar />
         {
           filteredData.map(data => (
             <div className="body" key={data.text}>
@@ -55,7 +45,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    action_creator: () => dispatch(action_creator()),
+    fetchData: () => dispatch(fetchData()),
     sendCoordinates: (props) => dispatch(sendCoordinates(props))
   };
 };

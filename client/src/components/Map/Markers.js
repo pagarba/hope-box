@@ -5,11 +5,11 @@ import { connect } from 'react-redux'
 import responseURL from '../../images/greenMarker.svg';
 import noResponseURL from '../../images/redMarker.svg';
 import noAssistanceURL from '../../images/orangeMarker.svg';
-import { action_creator } from '../../core/actions/data';
+import { fetchData } from '../../core/actions/data';
 
 class Markers extends Component {
   componentDidMount() {
-    const response = this.props.action_creator();
+    const response = this.props.fetchData();
     this.setState({ data: response });
   }
   
@@ -64,7 +64,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    action_creator: () => dispatch(action_creator())
+    fetchData: () => dispatch(fetchData())
   };
 };
 

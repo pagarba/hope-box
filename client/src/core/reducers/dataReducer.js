@@ -1,6 +1,7 @@
 const initalState = {
     data: [],
-    coordinates: {}
+    coordinates: {},
+    filter: ''
 }
 
 export default (state = initalState, action) => {
@@ -14,6 +15,11 @@ export default (state = initalState, action) => {
             return {
                 ...state,
                 coordinates: action.coordinates
+            }
+        case 'FILTER_DATA':
+            return {
+                ...state,
+                filter: action.filter
             }
         default:
             return state;

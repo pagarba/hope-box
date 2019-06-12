@@ -14,11 +14,20 @@ export const send_coordinates = ({
     }
 })
 
+export const filter_data = (term) => ({
+    type: 'FILTER_DATA',
+    filter: term
+})
+
 export const sendCoordinates = (props) => dispatch => {
     dispatch(send_coordinates(props))
 }
 
-export const action_creator = () => dispatch => {
+export const filterData = (props) => dispatch => {
+    dispatch(filter_data(props))
+}
+
+export const fetchData = () => dispatch => {
     dispatch(fetch_data([{
             ismi: 520031234567890,
             lat: 51.5,
