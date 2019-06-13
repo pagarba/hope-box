@@ -38,14 +38,7 @@ body {
     .card {
         width: 27em;
         left: 4em;
-        height: 9.3em;
+        height: 13.9em;
     }
 }
 
-@media (min-width: 1440px) {
-    .card {
-        width: 27em;
-        left: 4em;
-        height: 13.9em
-    }
-}
