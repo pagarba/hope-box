@@ -5,9 +5,12 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "leaflet": "^1.5.1",
+    "leaflet.markercluster": "^1.4.1",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-leaflet": "^2.3.0",
+    "react-leaflet": "^1.8.2",
+    "react-leaflet-markercluster": "^1.1.8",
     "react-redux": "^7.0.3",
     "react-scripts": "3.0.1",
     "reactstrap": "^8.0.0",
