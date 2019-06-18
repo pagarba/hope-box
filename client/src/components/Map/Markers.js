@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import L from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
 import { connect } from 'react-redux'
+import MarkerClusterGroup from 'react-leaflet-markercluster';
+import 'react-leaflet-markercluster/dist/styles.min.css';
 import responseURL from '../../images/greenMarker.svg';
 import noResponseURL from '../../images/redMarker.svg';
 import noAssistanceURL from '../../images/orangeMarker.svg';
@@ -44,12 +46,17 @@ class Markers extends Component {
         </Marker>
       }
     }
-
     return (
-      <div>  
-      {
-        this.props.data.data.map(data => filterByConnection(data))
-      }
+      <div>
+        <MarkerClusterGroup spiderLegPolylineOptions={{
+          weight: 0,
+          opacity: 0,
+        }}>
+          {
+            this.props.data.data.map(data => filterByConnection(data))
+          }
+        </MarkerClusterGroup>  
+      
       </div>
     );
   }
