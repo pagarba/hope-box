@@ -1,0 +1,51 @@
+const fetch_data = (req, res) => {
+    res.send([{
+        ismi: 520031234567890,
+        coord: {
+            lat: 51.5,
+            lon: -0.096
+        },
+        text: 'Assistance'
+    }, {
+        ismi: 502130123456789,
+        
+        coord: {
+            lat: 51.496,
+            lon: -0.096
+        },
+        text: 'connected!'
+    }, {
+        ismi: 460001357924680,
+        
+        coord: {
+            lat: 51.50,
+            lon: -0.08
+        },
+        text: 'Need Help'
+    }, {
+        ismi: 470010171566423,
+        coord: {
+            lat: 51.503,
+            lon: -0.09
+        },
+        text: 'no assistance needed'
+    }, {
+        ismi: 520010171566423,
+        coord: {
+            lat: 51.5,
+            lon: -0.095
+        },
+        text: 'no help needed'
+    }, {
+        ismi: 310150123456789,
+        coord: {
+            lat: 51.4969,
+            lon: -0.087
+        },
+        text: 'device is connected'
+    }])
+}
+
+module.exports = {
+    fetch_data
+}

@@ -7,12 +7,7 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import responseURL from '../../images/greenMarker.svg';
 import { fetchData } from '../../core/actions/data';
 
-class Markers extends Component {
-  componentDidMount() {
-    const response = this.props.fetchData();
-    this.setState({ data: response });
-  }
-  
+class Markers extends Component {  
   render() {
     const responseIcon = L.icon({
       iconUrl: responseURL,
@@ -26,6 +21,7 @@ class Markers extends Component {
           </Popup>
         </Marker>
     }
+
     return (
       <div>
         <MarkerClusterGroup spiderLegPolylineOptions={{
