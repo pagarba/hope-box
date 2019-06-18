@@ -5,8 +5,7 @@ import { connect } from 'react-redux'
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import responseURL from '../../images/greenMarker.svg';
-import noResponseURL from '../../images/redMarker.svg';
-import noAssistanceURL from '../../images/orangeMarker.svg';
+
 import { fetchData } from '../../core/actions/data';
 
 class Markers extends Component {
@@ -21,30 +20,12 @@ class Markers extends Component {
       iconSize: [40, 40] 
     });
 
-    const noResponseIcon = L.icon({
-      iconUrl: noResponseURL,
-      iconSize: [40, 40]
-    });
-
-    const noAssistanceIcon = L.icon({
-      iconUrl: noAssistanceURL,
-      iconSize: [40, 40]
-    });
-
     const filterByConnection = (data) => {
-       if(data.connected) {
         return <Marker position={[data.lat, data.lon]} icon={responseIcon} key={data.ismi}>
           <Popup>
             {data.text}
           </Popup>
         </Marker>
-      } else {
-        return <Marker position={[data.lat, data.lon]} icon={noResponseIcon} key={data.ismi}>
-          <Popup>
-            {data.text}
-          </Popup>
-        </Marker>
-      }
     }
     return (
       <div>
