@@ -15,9 +15,9 @@ class Markers extends Component {
     });
 
     const filterByConnection = (data) => {
-        return <Marker position={[data.coord.lat, data.coord.lon]} icon={responseIcon} key={data.ismi}>
+        return <Marker position={[parseInt(data.lat), parseInt(data.lon)]} icon={responseIcon} key={data.imsi}>
           <Popup>
-            {data.text}
+            {data.message}
           </Popup>
         </Marker>
     }

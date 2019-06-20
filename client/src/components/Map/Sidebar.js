@@ -13,7 +13,7 @@ class Sidebar extends Component {
 
   render() {
     const filteredData = this.props.data.data.filter(data => {
-      return data.ismi.toString().indexOf(this.props.data.filter) !== -1
+      return data.imsi.toString().indexOf(this.props.data.filter) !== -1
     });
     
     return (
@@ -21,13 +21,13 @@ class Sidebar extends Component {
         <SearchBar />
         {
           filteredData.map(data => (
-            <div className="body" key={data.text}>
+            <div className="body" key={data.message}>
             <div>
-              <CardTitle className="ismi" key={data.ismi}>{data.ismi}</CardTitle>
-              <CardText className="text" key={data.text}>{data.text}</CardText>
+              <CardTitle className="ismi" key={data.imsi}>{data.imsi}</CardTitle>
+              <CardText className="text" key={data.message}>{data.message}</CardText>
             </div>
             <div className="button">
-              <Button className="button" color="info" onClick={() => this.props.sendCoordinates({lat: data.coord.lat, lon: data.coord.lon})}>Go</Button> 
+              <Button className="button" color="info" onClick={() => this.props.sendCoordinates({lat: data.lat, lon: data.lon})}>Go</Button> 
             </div> 
             </div> 
           ))

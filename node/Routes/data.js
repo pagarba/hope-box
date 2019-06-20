@@ -1,4 +1,4 @@
-const pool = require('./queries')
+const pool = require('../queries')
 
 
 const fetch_data = async (req, res) => {

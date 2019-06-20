@@ -10,20 +10,21 @@ class StreetMap extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      position: [51.505, -0.09]
+      position: [ 51.505, -0.09 ]
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.data.coordinates.lat !== prevProps.data.coordinates.lat) {
-      this.setState({ position: this.props.data.coordinates })
+    if (this.props.data.coordinates !== prevProps.data.coordinates) {
+      this.setState({ position: [parseInt(this.props.data.coordinates.lat), parseInt(this.props.data.coordinates.lon)]})
     }
   }
 
   render() {
+    console.log(this.state.position)
     return (
       <div className="map">
-        <Map className="map" center={this.state.position} zoom={19}>
+        <Map className="map" center={this.state.position} zoom={2.7}>
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

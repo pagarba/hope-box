@@ -28,7 +28,7 @@ export const filterData = (text) => dispatch => {
 }
 
 export const fetchData = () => async dispatch => {
-    const response = await fetch('/data/fetch')
+    const response = await fetch('data/fetch')
     const data = await response.json()
 
     dispatch(fetch_data(data))
