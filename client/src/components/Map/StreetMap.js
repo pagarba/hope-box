@@ -21,7 +21,6 @@ class StreetMap extends Component {
   }
 
   render() {
-    console.log(this.state.position)
     return (
       <div className="map">
         <Map className="map" center={this.state.position} zoom={2.7}>
