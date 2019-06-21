@@ -27,7 +27,7 @@ class Sidebar extends Component {
               <CardText className="text" key={data.message}>{data.message}</CardText>
             </div>
             <div className="button">
-              <Button className="button" color="info" onClick={() => this.props.sendCoordinates({lat: parseInt(data.lat), lon: parseInt(data.lon)})}>Go</Button> 
+              <Button className="button" color="info" onClick={() => this.props.sendCoordinates({lat: parseFloat(data.lat), lon: parseFloat(data.lon)})}>Go</Button> 
             </div> 
             </div> 
           ))

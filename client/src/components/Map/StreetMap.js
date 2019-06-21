@@ -17,7 +17,7 @@ class StreetMap extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.data.coordinates !== prevProps.data.coordinates) {
-      this.setState({ position: [this.props.data.coordinates.lat, this.props.data.coordinates.lon], zoom: 18})
+      this.setState({ position: [parseFloat(this.props.data.coordinates.lat), parseFloat(this.props.data.coordinates.lon)], zoom: 18})
     }
   }
 
