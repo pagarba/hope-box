@@ -21,15 +21,18 @@ class Sidebar extends Component {
         <SearchBar />
         {
           filteredData.map(data => (
-            <div className="body" key={data.message}>
-            <div>
-              <CardTitle className="ismi" key={data.imsi}>{data.imsi}</CardTitle>
-              <CardText className="text" key={data.message}>{data.message}</CardText>
+            <div key ={data.imsi}>
+              <div className="body">
+                <div>
+                  <CardTitle className="ismi">{data.imsi}</CardTitle>
+                  <CardText className="text">{data.message}</CardText>
+                </div>
+                <div className="button">
+                  <Button className="button" color="info" onClick={() => this.props.sendCoordinates({lat: parseFloat(data.lat), lon: parseFloat(data.lon)})}>Go</Button> 
+                </div> 
+              </div> 
             </div>
-            <div className="button">
-              <Button className="button" color="info" onClick={() => this.props.sendCoordinates({lat: parseFloat(data.lat), lon: parseFloat(data.lon)})}>Go</Button> 
-            </div> 
-            </div> 
+            
           ))
         }
       </Card>

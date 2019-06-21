@@ -15,19 +15,15 @@ class StreetMap extends Component {
     }
   }
 
-  componentDidMount() {
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.setState({ position: [position.coords.latitude, position.coords.longitude], zoom: 18})
-    }, async () => {
+  async componentDidMount() {
       let response = await fetch('https://ipapi.co/json')
       let position = await response.json()
-      this.setState({ position: [position.latitude, position.longitude], zoom: 18})
-    })
+      this.setState({ position: [position.latitude, position.longitude], zoom: 15})
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.data.coordinates !== prevProps.data.coordinates) {
-      this.setState({ position: [parseFloat(this.props.data.coordinates.lat), parseFloat(this.props.data.coordinates.lon)], zoom: 18})
+      this.setState({ position: [this.props.data.coordinates.lat, this.props.data.coordinates.lon], zoom: 18})
     }
   }
 
