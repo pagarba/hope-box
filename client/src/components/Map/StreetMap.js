@@ -11,8 +11,15 @@ class StreetMap extends Component {
     super(props)
     this.state = {
       position: [ 51.505, -0.09 ],
-      zoom: 2
+      zoom: null
     }
+  }
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position.coords.latitude, position.coords.longitude)
+      this.setState({ position: [position.coords.latitude, position.coords.longitude], zoom: 18})
+    })
   }
 
   componentDidUpdate(prevProps, prevState) {
