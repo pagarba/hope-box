@@ -17,8 +17,11 @@ class StreetMap extends Component {
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position.coords.latitude, position.coords.longitude)
       this.setState({ position: [position.coords.latitude, position.coords.longitude], zoom: 18})
+    }, async () => {
+      let response = await fetch('https://ipapi.co/json')
+      let position = await response.json()
+      this.setState({ position: [position.latitude, position.longitude], zoom: 18})
     })
   }
 
