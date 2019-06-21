@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Map, TileLayer } from 'react-leaflet';
 import Markers from './Markers';
 import Sidebar from './Sidebar';
+import DangerZone from './DangerZone';
 import { connect } from 'react-redux';
 import './styles/StreetMap.css';
 
@@ -36,6 +37,7 @@ class StreetMap extends Component {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <Markers />
+          <DangerZone />
         </Map>   
         <Sidebar className="card"/>
       </div>   
