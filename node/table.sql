@@ -1,9 +1,9 @@
 CREATE TABLE data
 (
     imsi VARCHAR (50) UNIQUE NOT NULL,
-    lat VARCHAR(15),
-    lon VARCHAR(15),
-    Message VARCHAR (1000)
+    lat VARCHAR(15) NOT NULL,
+    lon VARCHAR(15) NOT NULL,
+    Message VARCHAR (1000) NOT NULL
 );
 
 INSERT INTO data
