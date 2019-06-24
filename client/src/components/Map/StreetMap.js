@@ -3,6 +3,7 @@ import { Map, TileLayer } from 'react-leaflet';
 import Markers from './Markers';
 import Sidebar from './Sidebar';
 import DangerZone from './DangerZone';
+import SafeZone from './SafeZone';
 import { connect } from 'react-redux';
 import './styles/StreetMap.css';
 
@@ -38,6 +39,7 @@ class StreetMap extends Component {
           />
           <Markers />
           <DangerZone />
+          <SafeZone />
         </Map>   
         <Sidebar className="card"/>
       </div>   
