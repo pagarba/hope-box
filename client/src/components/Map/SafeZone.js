@@ -1,10 +1,11 @@
 import React from 'react';
-import { Circle } from 'react-leaflet';
+import { Polygon } from 'react-leaflet';
 
 const SafeZone = () => {
+    const polygon = [[34.0500, -118.2288], [34.0329, -118.2260], [34.0401, -118.2165]]
     return (
         <div>
-            <Circle center={[33.7554, -84.4008]} fillColor="green" radius={200} />
+            <Polygon color="green" positions={polygon} />
         </div>  
     );    
 }

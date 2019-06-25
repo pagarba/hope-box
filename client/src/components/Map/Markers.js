@@ -4,22 +4,37 @@ import { Marker, Popup } from 'react-leaflet';
 import { connect } from 'react-redux'
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import 'react-leaflet-markercluster/dist/styles.min.css';
-import responseURL from '../../images/greenMarker.svg';
+import noAssistURL from '../../images/greenMarker.svg';
+import assistURL from '../../images/redMarker.svg'
 import { fetchData } from '../../core/actions/data';
 
 class Markers extends Component {  
   render() {
-    const responseIcon = L.icon({
-      iconUrl: responseURL,
+    const noAssistIcon = L.icon({
+      iconUrl: noAssistURL,
       iconSize: [40, 40] 
     });
 
+    const assistIcon = L.icon({
+      iconUrl: assistURL,
+      iconSize: [40, 40]
+    });
+
     const filterByConnection = (data) => {
-        return <Marker position={[parseFloat(data.lat), parseFloat(data.lon)]} icon={responseIcon} key={data.imsi}>
+      if (data.assistance === true) {
+         return <Marker position={[parseFloat(data.lat), parseFloat(data.lon)]} icon={assistIcon} key={data.imsi}>
           <Popup>
           <span>{data.message}</span>  
           </Popup>
         </Marker>
+      } else {
+        return <Marker position={[parseFloat(data.lat), parseFloat(data.lon)]} icon={noAssistIcon} key={data.imsi}>
+          <Popup>
+          <span>{data.message}</span>  
+          </Popup>
+        </Marker>
+      }
+       
     }
 
     return (
