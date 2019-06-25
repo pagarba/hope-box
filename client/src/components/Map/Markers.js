@@ -1,40 +1,22 @@
 import React, { Component } from 'react';
-import L from 'leaflet';
-import { Marker, Popup } from 'react-leaflet';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-import 'react-leaflet-markercluster/dist/styles.min.css';
-import noAssistURL from '../../images/blueMarker.svg';
-import assistURL from '../../images/redMarker.svg'
+import InjuredMarker from './InjuredMarker';
+import UnharmedMarker from './UnharmedMarker';
+import AssistanceMarker from './AssistanceMarker';
 import { fetchData } from '../../core/actions/data';
+import 'react-leaflet-markercluster/dist/styles.min.css';
 
 class Markers extends Component {  
   render() {
-    const noAssistIcon = L.icon({
-      iconUrl: noAssistURL,
-      iconSize: [40, 40] 
-    });
-
-    const assistIcon = L.icon({
-      iconUrl: assistURL,
-      iconSize: [40, 40]
-    });
-
     const filterByConnection = (data) => {
-      if (data.assistance === true) {
-         return <Marker position={[parseFloat(data.lat), parseFloat(data.lon)]} icon={assistIcon} key={data.imsi}>
-          <Popup>
-          <span>{data.message}</span>  
-          </Popup>
-        </Marker>
-      } else {
-        return <Marker position={[parseFloat(data.lat), parseFloat(data.lon)]} icon={noAssistIcon} key={data.imsi}>
-          <Popup>
-          <span>{data.message}</span>  
-          </Popup>
-        </Marker>
+      if (data.status === 'injured') {
+        return <InjuredMarker data={data}  key={data.imsi}/>
+      } else if (data.status === 'unharmed') {
+        return <UnharmedMarker data={data}  key={data.imsi}/>
+      } else if (data.status === 'assistance') {
+        return <AssistanceMarker data={data}  key={data.imsi}/>
       }
-       
     }
 
     return (
@@ -51,7 +33,6 @@ class Markers extends Component {
       </div>
     );
   }
-  
 }
 
 const mapStateToProps = state => {
