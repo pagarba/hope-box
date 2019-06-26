@@ -18,16 +18,15 @@ class Markers extends Component {
         return <AssistanceMarker data={data}  key={data.imsi}/>
       }
     }
-
     return (
       <div>
         <MarkerClusterGroup spiderLegPolylineOptions={{
           weight: 0,
           opacity: 0,
         }}>
-          {
-            this.props.data.data.map(data => filterByConnection(data))
-          }
+        {
+          this.props.data.data.map(data => filterByConnection(data))
+        }
         </MarkerClusterGroup>  
       
       </div>

@@ -1,4 +1,4 @@
-CREATE TABLE data
+CREATE TABLE people
 (
     imsi NUMERIC UNIQUE NOT NULL,
     lat NUMERIC NOT NULL,
@@ -7,7 +7,7 @@ CREATE TABLE data
     status VARCHAR (20) NOT NULL
 );
 
-INSERT INTO data
+INSERT INTO people
     (imsi, lat, lon, message, status)
 VALUES
     ('502130123456789', '34.0422', '-118.233', 'injured', 'injured'),
@@ -30,3 +30,33 @@ VALUES
     ('637075669565601', '34.0389', '-118.2325', 'injured', 'injured'),
     ('637075669565201', '34.0450', '-118.2429', 'unharmed', 'unharmed');
     
+
+CREATE TABLE icons
+(
+    id SERIAL,
+    lat NUMERIC NOT NULL,
+    lon NUMERIC NOT NULL,
+    Message VARCHAR (1000) NOT NULL,
+    item VARCHAR (20) NOT NULL
+);
+
+INSERT INTO icons
+    (lat, lon, message, item)
+VALUES
+    ('34.04520', '-118.2397', 'responder', 'responder'),
+    ('34.0474', '-118.2531', 'responder', 'responder'),
+    ('34.0481', '-118.251', 'responder', 'responder'),
+    ('34.0486', '-118.2421', 'responder', 'responder'),
+    ('34.0412', '-118.2331', 'responder', 'responder'),
+    ('34.0346', '-118.2312', 'responder', 'responder'),
+    ('34.0438', '-118.2451', 'basestation', 'basestation'),
+    ('34.0454', '-118.2321', 'basestation', 'basestation'),
+    ('34.0361', '-118.2328', 'basestation', 'basestation'),
+    ('34.0361', '-118.242', 'basestation', 'basestation'),
+    ('34.0472', '-118.2519', 'basestation', 'basestation'),
+    ('34.0482', '-118.2395', 'basestation', 'basestation'),
+    ('34.0501', '-118.2446', 'LAPD Headquarters', 'safezone'),
+    ('34.0570', '-118.2397', 'Catholic Church', 'safezone'),
+    ('34.050200', '-118.2360', 'LAFD Fire Station No. 4', 'safezone'),
+    ('34.0376', '-118.2427', 'LAFD Post Office', 'safezone'),
+    ('34.0411', '-118.2479', 'LAFD Fire Station No. 9', 'safezone');

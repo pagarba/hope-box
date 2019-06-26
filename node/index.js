@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 const data = require('./Routes/data');
+const icons = require('./Routes/icons');
 const path = require('path');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+
 
 
 app.use(bodyParser.json())
@@ -13,6 +15,8 @@ app.use(bodyParser.urlencoded({
 
 app.get('/data/fetch', data.fetch_data)
 app.post('/data/post', data.post_data)
+
+app.get('/icons/fetch', icons.fetch_icon)
 
 
 // connects the build in the frontend

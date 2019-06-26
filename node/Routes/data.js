@@ -2,7 +2,7 @@ const pool = require('../queries')
 
 const fetch_data = async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM data');
+        const result = await pool.query('SELECT * FROM people');
         res.send(result.rows)
     } catch(err) {
         res.send(err)
@@ -17,7 +17,7 @@ const post_data = async (req, res) => {
 
     if (!isNaN(imsi && lat && lon)) {
         try {
-            const data = await pool.query('INSERT INTO DATA (imsi, lat, lon, message) VALUES ($1,$2,$3,$4)', [imsi, lat, lon, message])
+            const data = await pool.query('INSERT INTO PEOPLE (imsi, lat, lon, message) VALUES ($1,$2,$3,$4)', [imsi, lat, lon, message])
             res.send('success!')
         }   catch(err) {
             res.send(err)
