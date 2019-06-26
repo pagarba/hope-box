@@ -4,6 +4,7 @@ import Markers from './Markers/Markers';
 import Sidebar from './Sidebar';
 import Icons from './Icons/Icons';
 // import DangerZone from './DangerZone';
+import Toggle from './Toggle';
 import { connect } from 'react-redux';
 import './styles/StreetMap.css';
 
@@ -38,9 +39,12 @@ class StreetMap extends Component {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <Markers />
-
           <Icons />
+          <div className="toggle">
+            <Toggle />
+          </div>
         </Map>   
+        
         <Sidebar className="card"/>
       </div>   
     );

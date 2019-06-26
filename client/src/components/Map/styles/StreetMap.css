@@ -21,6 +21,12 @@ body {
     height: 9.1em; 
 }
 
+.toggle {
+    z-index: 999;
+    position: absolute;
+    right: 40em;
+}
+
 @media (min-width: 425px) {
     .card {
         width: 20em;
