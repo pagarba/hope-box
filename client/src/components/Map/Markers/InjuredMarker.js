@@ -1,7 +1,7 @@
 import React from 'react';
 import L from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
-import injuredURL from '../../images/redMarker.svg';
+import injuredURL from '../../../images/redMarker.svg';
 
 const InjuredMarker = (props) =>  {
     const injuredIcon = L.icon({

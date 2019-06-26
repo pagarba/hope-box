@@ -1,7 +1,7 @@
 import React from 'react';
 import L from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
-import assistanceURL from '../../images/yellowMarker.svg';
+import assistanceURL from '../../../images/yellowMarker.svg';
 
 const AssistanceMarker = (props) =>  {
     const assistanceIcon = L.icon({

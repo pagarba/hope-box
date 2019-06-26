@@ -4,7 +4,7 @@ import MarkerClusterGroup from 'react-leaflet-markercluster';
 import InjuredMarker from './InjuredMarker';
 import UnharmedMarker from './UnharmedMarker';
 import AssistanceMarker from './AssistanceMarker';
-import { fetchData } from '../../core/actions/data';
+import { fetchData } from '../../../core/actions/data';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 
 class Markers extends Component {  
@@ -31,8 +31,8 @@ class Markers extends Component {
       
       </div>
     );
-  }
-}
+  };
+};
 
 const mapStateToProps = state => {
   return {

@@ -1,7 +1,7 @@
 import React from 'react';
 import L from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
-import unharmedURL from '../../images/blueMarker.svg';
+import unharmedURL from '../../../images/blueMarker.svg';
 
 const UnharmedMarker = (props) =>  {
     const unharmedIcon = L.icon({
