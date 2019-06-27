@@ -14,7 +14,7 @@ class Icons extends Component {
     render() {
         return(
             <div>{
-                this.props.icons.icons.map(icon => {
+                this.props.icons.icons.forEach(icon => {
                     if (icon.item === 'Responder') {
                         return <ResponderIcon icon={icon} key={icon.id}/>
                     } else if (icon.item === 'Base Station') {

@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import { Map, TileLayer } from 'react-leaflet';
+import { Map, TileLayer, Popup } from 'react-leaflet';
+import DragMarker from './DragMarker/DragMarker';
 import Markers from './Markers/Markers';
 import Icons from './Icons/Icons';
 import IconModal from './IconModal';
+// import DragMarkerTxt from './DragMarker/DragMarkerTxt';
 import DangerZone from './Icons/DangerZone';
 import { connect } from 'react-redux';
 import './styles/StreetMap.css';
-
 
 class StreetMap extends Component {
   constructor(props) {
     super(props)
     this.state = {
       position: [ 51.505, -0.09 ],
-      zoom: null
+      zoom: null,
+      currentPos: null
     };
   };
 
@@ -30,9 +32,12 @@ class StreetMap extends Component {
   };
 
   render() {
+    const handleClick = (e) => {
+      this.setState({ currentPos: e.latlng })
+    }
     return (
       <div className="map">
-        <Map className="map" center={this.state.position} zoom={this.state.zoom}>
+        <Map className="map" center={this.state.position} zoom={this.state.zoom} onClick={handleClick}>
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -41,6 +46,19 @@ class StreetMap extends Component {
           <Icons />
           <IconModal />
           <DangerZone />
+          {
+            this.state.currentPos && <DragMarker position={this.state.currentPos}>
+                <Popup position={this.state.currentPos}>
+                    <div className="text-popup">
+                    <span>
+                        Current location: 
+                        <pre>{`Latitude: ${this.state.currentPos.lat}`}</pre>
+                        <pre>{`Longitude: ${this.state.currentPos.lng}`}</pre> 
+                    </span>
+                    </div>
+                </Popup>
+            </DragMarker>
+            }
         </Map>         
       </div>   
     );

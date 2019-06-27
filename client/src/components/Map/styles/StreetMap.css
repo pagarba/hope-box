@@ -16,24 +16,16 @@ body {
     z-index: 999;
 }
 
-/* @media (min-width: 425px) {
-    .card {
-        width: 20em;
-    }
+.text-popup span {
+    font-weight: bold;
+    font-size: 1.3em;
 }
 
-@media (min-width: 768px) {
-    .card {
-        width: 30em;
-        left: 9em;
-    }
+.text-popup pre {
+    font-size: .9em;
+    font-weight: normal;
 }
 
-@media (min-width: 1024px) {
-    .card {
-        width: 27em;
-        left: 4em;
-        height: 40em;
-    }
-} */
-
+.text-popup pre:first-child {
+    margin-top: 1em;
+}

@@ -22,7 +22,7 @@ class Markers extends Component {
           opacity: 0,
         }}>
         {
-          this.props.data.data.map(data => {
+          this.props.data.data.forEach(data => {
             if (data.status === 'injured') {
               return <InjuredMarker data={data}  key={data.imsi}/>
             } else if (data.status === 'unharmed') {
