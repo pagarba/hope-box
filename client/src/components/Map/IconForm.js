@@ -3,9 +3,9 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
 import { postIcons } from '../../core/actions/icons';
 
-const IconForm = () => {
+const IconForm = (props) => {
     const onFormSubmit = (e) => {
-        this.props.postIcons({
+        props.postIcons({
             lat: e.target.latitude.value,
             lon: e.target.longitude.value,
             message: e.target.locationName.value,
