@@ -33,7 +33,6 @@ const IconForm = (props) => {
                     <option>Safe Zone</option>
                     <option>Responder</option>
                     <option>Base Station</option>
-                    <option>Danger Zone</option>
                 </Input>
             </FormGroup>
         <Button className="submit-button">Submit</Button>
