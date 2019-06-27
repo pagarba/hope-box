@@ -3,7 +3,7 @@ import { Map, TileLayer } from 'react-leaflet';
 import Markers from './Markers/Markers';
 import Icons from './Icons/Icons';
 // import DangerZone from './DangerZone';
-import ModalExample from './ModalExample';
+import IconModal from './IconModal';
 import { connect } from 'react-redux';
 import './styles/StreetMap.css';
 
@@ -20,7 +20,7 @@ class StreetMap extends Component {
   async componentDidMount() {
       let response = await fetch('https://ipapi.co/json')
       let position = await response.json()
-      this.setState({ position: [position.latitude, position.longitude], zoom: 15})
+      this.setState({ position: [position.latitude, position.longitude], zoom: 10})
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -39,7 +39,7 @@ class StreetMap extends Component {
           />
           <Markers />
           <Icons />
-            <ModalExample />
+          <IconModal />
         </Map>         
       </div>   
     );

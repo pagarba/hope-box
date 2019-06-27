@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Modal, Form, FormGroup, Label, Input } from 'reactstrap';
 import { postIcons } from '../../core/actions/icons';
-import './styles/ModalExample.css';
+import './styles/IconModal.css';
 
-class ModalExample extends Component {
+class IconModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +21,6 @@ class ModalExample extends Component {
 
   render() {
     const onFormSubmit = (e) => {
-      e.preventDefault();
       this.props.postIcons({
         lat: e.target.latitude.value,
         lon: e.target.longitude.value,
@@ -32,7 +31,7 @@ class ModalExample extends Component {
 
     return (
       <div>
-        <Button className="button-modal" color="primary" onClick={this.toggle}>Add SafeZone</Button>
+        <Button className="button-modal" color="primary" onClick={this.toggle}>Add Icon</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <Form onSubmit={onFormSubmit}>
             <FormGroup className="form-group">
@@ -50,7 +49,10 @@ class ModalExample extends Component {
             <FormGroup>
           <Label for="iconType">Icon Type</Label>
           <Input type="select" name="item">
-            <option>safezone</option>
+            <option>Safe Zone</option>
+            <option>Responder</option>
+            <option>Base Station</option>
+            <option>Danger Zone</option>
           </Input>
         </FormGroup>
             <Button className="submit-button">Submit</Button>
@@ -67,4 +69,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(ModalExample);
+export default connect(null, mapDispatchToProps)(IconModal);

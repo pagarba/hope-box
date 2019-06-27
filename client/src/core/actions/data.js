@@ -14,17 +14,8 @@ export const send_coordinates = ({
     }
 })
 
-export const filter_data = (text) => ({
-    type: 'FILTER_DATA',
-    filter: text
-})
-
 export const sendCoordinates = (props) => dispatch => {
     dispatch(send_coordinates(props))
-}
-
-export const filterData = (text) => dispatch => {
-    dispatch(filter_data(text))
 }
 
 export const fetchData = () => async dispatch => {

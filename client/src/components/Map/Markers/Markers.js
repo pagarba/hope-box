@@ -8,16 +8,13 @@ import { fetchData } from '../../../core/actions/data';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 
 class Markers extends Component {  
+  async componentDidMount() {
+    const response = await this.props.fetchData()
+    this.setState({ data: response })
+  }
+  
+  
   render() {
-    const filterByConnection = (data) => {
-      if (data.status === 'injured') {
-        return <InjuredMarker data={data}  key={data.imsi}/>
-      } else if (data.status === 'unharmed') {
-        return <UnharmedMarker data={data}  key={data.imsi}/>
-      } else if (data.status === 'assistance') {
-        return <AssistanceMarker data={data}  key={data.imsi}/>
-      }
-    }
     return (
       <div>
         <MarkerClusterGroup spiderLegPolylineOptions={{
@@ -25,7 +22,15 @@ class Markers extends Component {
           opacity: 0,
         }}>
         {
-          this.props.data.data.map(data => filterByConnection(data))
+          this.props.data.data.map(data => {
+            if (data.status === 'injured') {
+              return <InjuredMarker data={data}  key={data.imsi}/>
+            } else if (data.status === 'unharmed') {
+              return <UnharmedMarker data={data}  key={data.imsi}/>
+            } else if (data.status === 'assistance') {
+              return <AssistanceMarker data={data}  key={data.imsi}/>
+            }
+          })
         }
         </MarkerClusterGroup>  
       
