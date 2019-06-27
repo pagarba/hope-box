@@ -22,9 +22,10 @@ class Icons extends Component {
                         return <BaseStationIcon icon={icon} key={icon.id}/>
                     } else if (icon.item === 'Safe Zone') {
                         return <SafeZone icon={icon} key={icon.id} />
-                    } else if (icon.iten === 'Danger Zone') {
-                        return <DangerZone icon={icon} key={icon.id}/>
-                    }
+                    } 
+                    // else if (icon.iten === 'Danger Zone') {
+                    //     return <DangerZone icon={icon} key={icon.id}/>
+                    // }
                 })
             }</div>
         );

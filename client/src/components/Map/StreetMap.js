@@ -3,6 +3,7 @@ import { Map, TileLayer } from 'react-leaflet';
 import Markers from './Markers/Markers';
 import Icons from './Icons/Icons';
 import IconModal from './IconModal';
+import DangerZone from './Icons/DangerZone';
 import { connect } from 'react-redux';
 import './styles/StreetMap.css';
 
@@ -39,6 +40,7 @@ class StreetMap extends Component {
           <Markers />
           <Icons />
           <IconModal />
+          <DangerZone />
         </Map>         
       </div>   
     );
