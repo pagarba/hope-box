@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Map, TileLayer } from 'react-leaflet';
 import Markers from './Markers/Markers';
 import Icons from './Icons/Icons';
-// import DangerZone from './DangerZone';
 import IconModal from './IconModal';
 import { connect } from 'react-redux';
 import './styles/StreetMap.css';
