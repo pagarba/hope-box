@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Map, TileLayer } from 'react-leaflet';
 import Markers from './Markers/Markers';
-import Sidebar from './Sidebar';
 import Icons from './Icons/Icons';
 // import DangerZone from './DangerZone';
-import Toggle from './Toggle';
+import ModalExample from './ModalExample';
 import { connect } from 'react-redux';
 import './styles/StreetMap.css';
 
@@ -40,12 +39,8 @@ class StreetMap extends Component {
           />
           <Markers />
           <Icons />
-          <div className="toggle">
-            <Toggle />
-          </div>
-        </Map>   
-        
-        <Sidebar className="card"/>
+            <ModalExample />
+        </Map>         
       </div>   
     );
   };

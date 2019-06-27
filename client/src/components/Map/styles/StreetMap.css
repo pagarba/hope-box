@@ -12,22 +12,11 @@ body {
     height: 100%;
 }
 
-.card {
+.modal {
     z-index: 999;
-    position: absolute;
-    top: 0.5em;
-    left: 4em;
-    width: 15em;
-    height: 9.1em; 
 }
 
-.toggle {
-    z-index: 999;
-    position: absolute;
-    right: 40em;
-}
-
-@media (min-width: 425px) {
+/* @media (min-width: 425px) {
     .card {
         width: 20em;
     }
@@ -44,7 +33,7 @@ body {
     .card {
         width: 27em;
         left: 4em;
-        height: 13.9em;
+        height: 40em;
     }
-}
+} */
 

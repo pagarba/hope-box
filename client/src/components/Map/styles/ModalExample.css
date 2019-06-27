@@ -1,0 +1,19 @@
+.button-modal {
+    right: 0;
+    z-index: 999;
+    position: absolute;
+}
+
+.modal-backdrop {
+    z-index: -1;
+}
+
+.form-group {
+    margin: 1em;
+}
+
+.submit-button {
+    float: right;
+    margin-right: 2.3em;
+    margin-bottom: 1em;
+}
