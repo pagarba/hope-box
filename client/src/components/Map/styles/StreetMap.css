@@ -29,3 +29,7 @@ body {
 .text-popup pre:first-child {
     margin-top: 1em;
 }
+
+.icon-button {
+    float: right;
+}

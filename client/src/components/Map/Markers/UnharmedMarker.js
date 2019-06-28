@@ -12,7 +12,7 @@ const UnharmedMarker = (props) =>  {
     return(
         <Marker position={[parseFloat(props.data.lat), parseFloat(props.data.lon)]} icon={unharmedIcon}>
           <Popup>
-          <span>{props.data.message}</span>  
+            <span>{props.data.message}</span>  
           </Popup>
         </Marker>
     ); 

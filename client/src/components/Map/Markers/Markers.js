@@ -30,6 +30,7 @@ class Markers extends Component {
             } else if (data.status === 'assistance') {
               return <AssistanceMarker data={data}  key={data.imsi}/>
             }
+          return null;
           })
         }
         </MarkerClusterGroup>  

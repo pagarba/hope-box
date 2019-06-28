@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Map, TileLayer, Popup } from 'react-leaflet';
-import DragMarker from './DragMarker/DragMarker';
+import { Map, TileLayer } from 'react-leaflet';
 import Markers from './Markers/Markers';
 import Icons from './Icons/Icons';
-import IconModal from './IconModal';
-// import DragMarkerTxt from './DragMarker/DragMarkerTxt';
+import DragMarkerTxt from './DragMarker/DragMarkerTxt';
 import DangerZone from './Icons/DangerZone';
 import { connect } from 'react-redux';
 import './styles/StreetMap.css';
@@ -35,6 +33,7 @@ class StreetMap extends Component {
     const handleClick = (e) => {
       this.setState({ currentPos: e.latlng })
     }
+
     return (
       <div className="map">
         <Map className="map" center={this.state.position} zoom={this.state.zoom} onClick={handleClick}>
@@ -44,21 +43,8 @@ class StreetMap extends Component {
           />
           <Markers />
           <Icons />
-          <IconModal />
           <DangerZone />
-          {
-            this.state.currentPos && <DragMarker position={this.state.currentPos}>
-                <Popup position={this.state.currentPos}>
-                    <div className="text-popup">
-                    <span>
-                        Current location: 
-                        <pre>{`Latitude: ${this.state.currentPos.lat}`}</pre>
-                        <pre>{`Longitude: ${this.state.currentPos.lng}`}</pre> 
-                    </span>
-                    </div>
-                </Popup>
-            </DragMarker>
-            }
+          <DragMarkerTxt currentPos={this.state.currentPos} />
         </Map>         
       </div>   
     );

@@ -7,24 +7,24 @@ class IconModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: this.props.modalState
     };
   }
 
   toggle = () => {
-    this.setState(prevState => ({
-      modal: !prevState.modal
-    }));
+    this.setState({
+      modal: !this.state.modal
+    });
   }
 
   render() {
     return (
       <div>
-        <Button className="button-modal" color="primary" onClick={this.toggle}>Add Icon</Button>
+        <Button className="button-modal" color="primary" onClick={this.toggle}>Add Marker</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Add an Icon</ModalHeader>
-            <IconForm />
-        </Modal>
+              <IconForm />  
+        </Modal>  
       </div>
     );
   }

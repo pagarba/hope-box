@@ -22,6 +22,7 @@ class Icons extends Component {
                     } else if (icon.item === 'Safe Zone') {
                         return <SafeZone icon={icon} key={icon.id} />
                     } 
+                    return null;
                 })
             }</div>
         );
