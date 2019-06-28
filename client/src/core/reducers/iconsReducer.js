@@ -1,5 +1,6 @@
 const initalState = {
-    icons: []
+    icons: [],
+    coords: {}
 }
 
 export default (state = initalState, action) => {
@@ -8,6 +9,11 @@ export default (state = initalState, action) => {
             return {
                 ...state,
                 icons: action.icons
+            }
+        case 'SEND_ICON_COORDS':
+            return {
+                ...state,
+                coords: action.coords
             }
             default:
                 return state;

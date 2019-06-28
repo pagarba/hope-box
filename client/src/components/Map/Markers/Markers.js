@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MarkerClusterGroup from 'react-leaflet-markercluster';
 import InjuredMarker from './InjuredMarker';
 import UnharmedMarker from './UnharmedMarker';
 import AssistanceMarker from './AssistanceMarker';
 import { fetchData } from '../../../core/actions/data';
-import 'react-leaflet-markercluster/dist/styles.min.css';
 
 class Markers extends Component {  
   async componentDidMount() {
@@ -17,10 +15,6 @@ class Markers extends Component {
   render() {
     return (
       <div>
-        <MarkerClusterGroup spiderLegPolylineOptions={{
-          weight: 0,
-          opacity: 0,
-        }}>
         {
           this.props.data.data.map(data => {
             if (data.status === 'injured') {
@@ -32,9 +26,7 @@ class Markers extends Component {
             }
           return null;
           })
-        }
-        </MarkerClusterGroup>  
-      
+        }      
       </div>
     );
   };

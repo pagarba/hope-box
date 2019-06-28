@@ -5,6 +5,7 @@ import Icons from './Icons/Icons';
 import DragMarkerTxt from './DragMarker/DragMarkerTxt';
 import DangerZone from './Icons/DangerZone';
 import { connect } from 'react-redux';
+import { sendIconCoords } from '../../core/actions/icons';
 import './styles/StreetMap.css';
 
 class StreetMap extends Component {
@@ -27,8 +28,12 @@ class StreetMap extends Component {
     if (this.props.data.coordinates !== prevProps.data.coordinates) {
       this.setState({ position: [this.props.data.coordinates.lat, this.props.data.coordinates.lon], zoom: 18})
     }
-  };
 
+    if (this.state.currentPos !== prevState.currentPos) {
+      this.props.sendIconCoords(this.state.currentPos)
+    }
+  };
+  
   render() {
     const handleClick = (e) => {
       this.setState({ currentPos: e.latlng })
@@ -51,10 +56,16 @@ class StreetMap extends Component {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    sendIconCoords: (coords) => dispatch(sendIconCoords(coords))
+  }
+}
+
 const mapStateToProps = state => {
   return {
     data: state.data
   };
 };
 
-export default connect(mapStateToProps)(StreetMap);
+export default connect(mapStateToProps, mapDispatchToProps)(StreetMap);

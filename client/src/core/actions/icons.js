@@ -8,6 +8,15 @@ export const post_icons = (icon) => ({
     icon
 })
 
+export const send_icon_coords = (coords) => ({
+    type: 'SEND_ICON_COORDS',
+    coords
+})
+
+export const sendIconCoords = (coords) => dispatch => {
+    dispatch(send_icon_coords(coords))
+}
+
 export const postIcons = ({ lat, lon, message, item}) => async dispatch =>{
     await fetch('/icons/post', {
         method: 'Post',

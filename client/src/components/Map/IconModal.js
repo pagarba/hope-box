@@ -20,7 +20,9 @@ class IconModal extends Component {
   render() {
     return (
       <div>
-        <Button className="button-modal" color="primary" onClick={this.toggle}>Add Marker</Button>
+        <div className="button-modal">
+          <Button color="primary" onClick={this.toggle}>Add Marker</Button>
+        </div>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Add an Icon</ModalHeader>
               <IconForm />  

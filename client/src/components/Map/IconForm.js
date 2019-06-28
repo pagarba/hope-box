@@ -6,25 +6,16 @@ import { postIcons } from '../../core/actions/icons';
 const IconForm = (props) => {
     const onFormSubmit = (e) => {
         props.postIcons({
-            lat: e.target.latitude.value,
-            lon: e.target.longitude.value,
+            lat: props.coords.lat,
+            lon: props.coords.lng,
             message: e.target.locationName.value,
             item: e.target.item.value
         })
     }
-    
     return(
         <Form onSubmit={onFormSubmit}>
-            <FormGroup className="form-group">
-                <Label for="latitude">Latitude</Label>
-                <Input type="latitude" name="latitude"/>
-            </FormGroup>
             <FormGroup>
-                <Label for="longitude">Longitude</Label>
-                <Input type="longitude" name="longitude" />
-            </FormGroup>
-            <FormGroup>
-                <Label for="locationName">Location Name</Label>
+                <Label for="locationName">Name</Label>
                 <Input type="locationName" name="locationName"/>
             </FormGroup>
             <FormGroup>
@@ -46,4 +37,10 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(IconForm);
+const mapStateToProps = state => {
+    return {
+        coords: state.icons.coords
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(IconForm);
