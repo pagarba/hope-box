@@ -14,10 +14,11 @@ const post_data = async (req, res) => {
     const lat = req.body.lat
     const lon = req.body.lon
     const message = req.body.message
+    const status = req.body.status
 
     if (!isNaN(imsi && lat && lon)) {
         try {
-            await pool.query('INSERT INTO PEOPLE (imsi, lat, lon, message) VALUES ($1,$2,$3,$4)', [imsi, lat, lon, message])
+            await pool.query('INSERT INTO PEOPLE (imsi, lat, lon, message, status) VALUES ($1,$2,$3,$4,$5)', [imsi, lat, lon, message, status])
             res.send('success!')
         }   catch(err) {
             res.send(err)
