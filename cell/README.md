@@ -1,4 +1,4 @@
-# Kudzu - BTS
+# HOPE-Box
 
 ## Install
 
