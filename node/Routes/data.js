@@ -23,19 +23,26 @@ const post_data = async (req, res) => {
         }   catch(err) {
             res.send(err)
         }
-    } else if (imsi)  {
-       try {
+    } 
+}
+
+const update_data = async (req, res) => {
+    const imsi = req.body.imsi
+    const message = req.body.message
+    const status = req.body.status
+
+    try {
         await pool.query('UPDATE PEOPLE SET status=($1) WHERE imsi=($2)', [status, imsi])
         await pool.query('UPDATE PEOPLE SET message=($1) WHERE imsi=($2)', [message, imsi])
         res.send('success!')
-       } catch(err) {
-           res.send(err)
-       }
-    }    
+    } catch (err) {
+        res.send(err)
+    }
 }
 
 
 module.exports = {
     fetch_data,
-    post_data
+    post_data,
+    update_data
 }
