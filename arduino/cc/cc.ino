@@ -12,7 +12,7 @@ const byte kLoRaAddress = LM_CC_ADDRESS;
 Config cfg = {
   Emergency::kAPIP,
   Emergency::kAPNetMask,
-  "CC",
+  "CommandCenterAP",
   Emergency::kDNSDomain,
   Emergency::kDNSPort,
   Emergency::kWiFiPort,
@@ -61,15 +61,15 @@ void loop() {
 
     WiFiClient cli;
     if(!cli.connect(pi_ip_, cfg.wifi_port)) {
-      Serial.print("WiFi connect error: "); 
+      Serial.print("WiFi connect error: ");
       Serial.print(pi_ip_); Serial.print(":"); Serial.println(cfg.wifi_port, DEC);
     } else {
       unsigned char seq[4];
       ltoc(pack.sequence, seq);
-    
+
       unsigned char now[4];
       ltoc(pack.timestamp, now);
-    
+
       String data;
       data.concat(String(pack.destination, HEX));
       data.concat(String(pack.source, HEX));
@@ -77,7 +77,7 @@ void loop() {
       data.concat(ctoh(now, sizeof(now)));
       data.concat(String(pack.type, HEX));
       data.concat(pack.payload);
-      
+
       cli.println(data);
       cli.stop();
       Serial.print("Sent data: "); Serial.println(data);
