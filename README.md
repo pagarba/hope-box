@@ -6,12 +6,12 @@
 * [Current Features](#current-features)
 * [Future Ideas](#future-ideas)
 * [About Us](#about-us)
-* [Arduino](arduino/README.md)
-* [Base Transceiver Station](bts/README.md)
-* [Command Center](cc/README.md)
-* [Supporting Documents](docs/README.md)
-* [Example Idea Code](examples/README.md)
-* [Bash Scripts](scripts/README.md)
+* [Arduino](arduino/)
+* [Base Transceiver Station](bts/)
+* [Command Center](cc/)
+* [Supporting Documents](docs/)
+* [Example Idea Code](examples/)
+* [Bash Scripts](scripts/)
 
 ## Overview
 
@@ -36,7 +36,7 @@ The following a basic outline of the current implemented features in the `HOPE-B
   - `USSD` protocol used for `ESI` questionnaire that is initiated by calling `*911#` on a connected mobile device.
   - The network will assign connected mobile devices to allow for voice communication if pursued.
 * Collect `Emergency Severity Index (ESI)` information for first responders and transmit over a LoRa mesh-network to the `CC`.
-  - For more information please checkout the [USSD Gateway](bts/ussd/README.md) documentation.
+  - For more information please checkout the [USSD Gateway](bts/ussd/) documentation.
 * Provide simple tweet like communication between responders and mobile users over a LoRa mesh-network.
   - Tweet being that messages are limited to `200 bytes` each to allow for header/meta information.
   - Packet transmission over lower can take up to `2 seconds` each.
