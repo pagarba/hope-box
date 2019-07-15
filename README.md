@@ -1,5 +1,6 @@
 # HOPE-Box
 
+#### This repository is under heavy development and may contain breaking changes.
 
 ## Table of Contents
 
