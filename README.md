@@ -5,6 +5,7 @@
 * [Overview](#overview)
 * [Current Features](#current-features)
 * [Future Ideas](#future-ideas)
+* [About Us](#about-us)
 * [Arduino](arduino/README.md)
 * [Base Transceiver Station](bts/README.md)
 * [Command Center](cc/README.md)
@@ -16,11 +17,13 @@
 
 The `HOPE-Box` provides a new way of gathering information for first responders during an emergency.  
 
+Watch a video introduction on YouTube at [https://youtu.be/J2ShlnsDs5A](https://youtu.be/J2ShlnsDs5A).
+
 By using cellular technology `HOPE-Box` provides a way to automatically connect to mobile devices which initiate a questionnaire to quickly gather emergency severity information from people and open up communication on the cellular network with first responders.
 
 The prototype has several limitations that can easily be expanded upon to provide better performance.  Ideally telecommunications providers would provide the hardware and allow for the `HOPE-Box` information gathering software platforms to integrate during emergencies.  
 
-Happiness can also be achieved by the adoption of a new era of mobile emergency services motived by the `HOPE-Box`.
+[Table of Contents](#table-of-contents)
 
 
 ## Current Features
@@ -49,3 +52,14 @@ There are several ideas that can be accomplished with the `HOPE-Box` and below i
 * Provide internal blockchain powered consensus between multiple `BTS`.
 * Implement a control protocol to change `BTS` settings in real-time.
 * In progress, more to come...
+
+
+## About Us
+
+![Pagarba Logo](https://secureservercdn.net/50.62.88.95/138.e03.myftpupload.com/wp-content/themes/twentyseventeen/pagarba/static/images/pagarba-logo-original.svg?sanitize=true)
+
+Pagarba is a global strategy and engineering consulting firm focused on creating products and solutions that enable digital transformation within blockchain, IoT, Artificial Intelligence, software defined radio, analytics, cloud, and cyber security for our customers.
+
+Beyond victory, happiness is also achieved with the adoption of a new era of mobile emergency services inspired by the `HOPE-Box`.
+
+For more information please view the website [https://pagarba.io](https://pagarba.io).
