@@ -1,11 +1,15 @@
 # HOPE-Box
 
+
 ## Table of Contents
 
 * [Overview](#overview)
 * [Current Features](#current-features)
 * [Future Ideas](#future-ideas)
 * [About Us](#about-us)
+
+### Modules:
+
 * [Arduino](arduino/)
 * [Base Transceiver Station](bts/)
 * [Command Center](cc/)
