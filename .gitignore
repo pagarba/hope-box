@@ -1,2 +1,11 @@
 .DS_Store
 .env
+
+*.csv
+*.db*
+*.log
+*.sav
+
+build/
+node_modules/
+tmp/
