@@ -1,2 +1,13 @@
 .DS_Store
 .env
+.vscode/*
+!.vscode/c_cpp_properties.json
+
+*.csv
+*.db*
+*.log
+*.sav
+
+build/
+node_modules/
+tmp/
