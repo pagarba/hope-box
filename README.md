@@ -44,7 +44,7 @@ The following a basic outline of the current implemented features in the `HOPE-B
   - For more information please checkout the [USSD Gateway](bts/ussd/) documentation.
 * Provide simple tweet like communication between responders and mobile users over a LoRa mesh-network.
   - Tweet being that messages are limited to `200 bytes` each to allow for header/meta information.
-  - Packet transmission over lower can take up to `2 seconds` each.
+  - Packet transmission over LoRA can take up to `2 seconds` each.
 * In progress, more to come...
 
 

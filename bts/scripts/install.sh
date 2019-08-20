@@ -19,7 +19,7 @@ OSMOTRX_V="1.0.0"
 echo -e "${GREEN}Installing dependencies...${NC}"
 sudo apt-get install -y software-properties-common && \
 sudo apt-get update -y && \
-sudo apt-get install -y git g++ cmake gnuplot sqlite3 gnutls-dev libsqlite3-dev libdbd-sqlite3 libortp-dev libsctp-dev libdbi-dev libtalloc-dev libi2c-dev libusb-1.0-0-dev libpcsclite-dev libfftw3-dev libwxgtk3.0-dev freeglut3-dev autoconf automake
+sudo apt-get install -y git g++ cmake gnuplot sqlite3 gnutls-dev libsqlite3-dev libdbd-sqlite3 libortp-dev libsctp-dev libdbi-dev libtalloc-dev libi2c-dev libusb-1.0-0-dev libpcsclite-dev libfftw3-dev libwxgtk3.0-dev freeglut3-dev libtool libtool-bin autoconf automake
 
 if [ ! -d "build/" ]; then
     echo -e "${YELLOW}Creating build directory...${NC}"
