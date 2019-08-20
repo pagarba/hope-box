@@ -10,16 +10,7 @@ Users are mobile phones and hopefully the operators that will have sessions trac
 
 ```c++
 struct user {
-    uint64_t id;
-    uint64_t imsi;
-    uint32_t msidsn;
-    uint64_t bts;
-    uint64_t phone;
-    std::string name;
-    double lat;
-    double lon;
-    uint8_t esi;
-    uint32_t timestamp;
+    
 }
 ```
 
