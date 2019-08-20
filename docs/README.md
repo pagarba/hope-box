@@ -1,4 +1,4 @@
-# HOPE-Box - Supporting Documents
+# HopeBox - Supporting Documents
 
 Checkout the following external documentation generated outside of this repository.
 

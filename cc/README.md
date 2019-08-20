@@ -1,4 +1,4 @@
-# HOPE-Box - Command Center (CC)
+# HopeBox - Command Center (CC)
 
 The following is information provided in regards to the command center and its function in the network.  
 

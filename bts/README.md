@@ -1,4 +1,4 @@
-# HOPE-Box - Base Transceiver Station (BTS)
+# HopeBox - Base Transceiver Station (BTS)
 
 The following is information provided in regards to the base transceiver station and its function in the network.  
 

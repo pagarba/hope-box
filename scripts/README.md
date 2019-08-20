@@ -1,4 +1,4 @@
-# HOPE-Box - Bash Scripts
+# HopeBox - Bash Scripts
 
 Use the following scripts to setup the system as a whole.  Each section can be setup individually. 
 
