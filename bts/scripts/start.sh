@@ -28,6 +28,6 @@ echo -e "${YELLOW}Starting osmo-bts-trx...${NC}"
 sudo osmo-bts-trx -c configs/simple/osmo-bts-trx.cfg -D
 
 echo -e "${YELLOW}Starting osmo-trx-lms...${NC}"
-sudo osmo-trx-lms -C configs/simple/osmo-trx-lms.cfg
+sudo osmo-trx-lms -C configs/simple/osmo-trx-lms.cfg &
 
 echo -e "${GREEN}Complete!${NC}"
