@@ -10,24 +10,24 @@ echo -e "${GREEN}Starting daemons...${NC}"
 cd bts
 
 echo -e "${YELLOW}Starting osmo-hlr...${NC}"
-sudo osmo-hlr -c configs/simple/osmo-hlr.cfg -D
+sudo osmo-hlr -c configs/osmo-hlr.cfg -D
 
 echo -e "${YELLOW}Starting osmo-msc...${NC}"
-sudo osmo-msc -c configs/simple/osmo-msc.cfg -D
+sudo osmo-msc -c configs/osmo-msc.cfg -D
 
 echo -e "${YELLOW}Starting osmo-stp...${NC}"
-sudo osmo-stp -c configs/simple/osmo-stp.cfg -D
+sudo osmo-stp -c configs/osmo-stp.cfg -D
 
 echo -e "${YELLOW}Starting osmo-mgw...${NC}"
-sudo osmo-mgw -c configs/simple/osmo-mgw.cfg -D
+sudo osmo-mgw -c configs/osmo-mgw.cfg -D
 
 echo -e "${YELLOW}Starting osmo-bsc...${NC}"
-sudo osmo-bsc -c configs/simple/osmo-bsc.cfg -D
+sudo osmo-bsc -c configs/osmo-bsc.cfg -D
 
 echo -e "${YELLOW}Starting osmo-bts-trx...${NC}"
-sudo osmo-bts-trx -c configs/simple/osmo-bts-trx.cfg -D
+sudo osmo-bts-trx -c configs/osmo-bts-trx.cfg -D
 
 echo -e "${YELLOW}Starting osmo-trx-lms...${NC}"
-sudo osmo-trx-lms -C configs/simple/osmo-trx-lms.cfg &
+sudo osmo-trx-lms -C configs/osmo-trx-lms.cfg &
 
 echo -e "${GREEN}Complete!${NC}"
