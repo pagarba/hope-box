@@ -8,7 +8,7 @@ The following is information provided in regards to the command center and its f
 Checkout the following to gain an overview of the different sections of the `CC`.
 
 * `client/` - the user interface delivered over WiFi to interact with the `CC`.
-* `configs/` - configuration files used to run the different `Osmocom` services.
+* `configs/` - configurations used for the `CC`.
 * `pi/` - files to be copied to the `Pi` after the operating system has been burned to the SD card.
 * `scripts/` - bash scripts related to the `BTS`.
 * `server/` - the server that accepts data as a TCP server for plotting on the graph and user interface.
