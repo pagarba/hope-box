@@ -1,0 +1,7 @@
+
+export default {
+  RESPONDERS: 'RESPONDERS',
+  SETTINGS: 'SETTINGS',
+  STATIONS: 'STATIONS',
+  USERS: 'USERS'
+}
