@@ -1,6 +1,13 @@
 
 import C from './constants'
 
+export const error = (state = null, {payload, type}) => {
+  if (type === C.ERROR) {
+    return payload
+  }
+  return state
+}
+
 export const responders = (state = [], {payload, type}) => {
   switch(type) {
     case C.RESPONDERS:
@@ -38,6 +45,7 @@ export const users = (state = [], {payload, type}) => {
 }
 
 export default {
+  error,
   responders,
   settings,
   stations,

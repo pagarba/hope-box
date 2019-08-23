@@ -7,7 +7,7 @@ import {render} from 'react-dom'
 import thunk from 'redux-thunk'
 
 import App from './App'
-import reducers from './reducers'
+import reducers from './lib/reducers'
 
 const store = createStore(
   combineReducers(reducers),

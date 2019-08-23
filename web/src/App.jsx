@@ -6,7 +6,6 @@ import config from '../package.json'
 import React from 'react'
 import {HashRouter, Route, Switch, withRouter} from 'react-router-dom'
 
-import {Container} from 'shards-react'
 import Dashboard from './container/Dashboard'
 import Map from './container/Map'
 import Navigation from './component/Navigation'
@@ -25,7 +24,7 @@ class App extends React.Component {
     return (
       <HashRouter>
         <Navigation title="HopeBox" version={config.version} />
-        <Container>
+        <div className="content" style={{margin: 0, padding: 10}}>
           <Switch>
             <Route component={Dashboard} path="/dashboard" />
             <Route component={Map} path="/map" />
@@ -35,7 +34,7 @@ class App extends React.Component {
             <Route component={Users} path="/users" />
             <Route component={RedirectToDashboard} exact path="/" />
           </Switch>
-        </Container>
+        </div>
       </HashRouter>
     )
   }
