@@ -12,20 +12,41 @@ func Close() (err error) {
 	return
 }
 
-func Create(v interface{}) {
+func Create(v interface{}) (err error) {
 	db.Create(v)
+	err = Error()
+	return
 }
 
-func Delete(v interface{}) {
+func Delete(v interface{}) (err error) {
 	db.Delete(v)
+	err = Error()
+	return
 }
 
-func DeleteByID(id uint, v interface{}) {
+func DeleteByID(id uint, v interface{}) (err error) {
 	db.Where("id == ?", id).Delete(v)
+	err = Error()
+	return
 }
 
-func Find(v interface{}) {
+func Error() (err error) {
+	errs := Errors()
+	if len(errs) > 0 {
+		err = errs[0]
+	}
+	return
+}
+
+func Errors() (errs []error) {
+	errs = db.GetErrors()
+	return
+}
+
+func Find(v interface{}) (err error) {
 	db.Find(v)
+	err = Error()
+	return
 }
 
 func Open(path string) (err error) {
@@ -37,6 +58,8 @@ func Open(path string) (err error) {
 	return
 }
 
-func Update(v interface{}) {
+func Update(v interface{}) (err error) {
 	db.Save(v)
+	err = Error()
+	return
 }

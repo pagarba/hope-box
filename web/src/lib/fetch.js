@@ -2,10 +2,14 @@
 import C from './constants'
 
 const getDataOrError = res => {
-  if (!res.ok || res.status < 200 || res.status > 399) {
-    throw new Error(res.statusText || res)
-  }
   return res.json()
+    .then(data => {
+      if (!res.ok || res.status < 200 || res.status > 399) {
+        console.log(data)
+        throw new Error(data.error || res.statusText || res)
+      }
+      return data
+    })
 }
 
 const getQuery = opts => {

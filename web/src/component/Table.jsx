@@ -1,14 +1,14 @@
 
 import React from 'react'
 
-import {Button, Col, Container, FormCheckbox, Row} from 'shards-react'
+import {Button, Col, FormCheckbox, Row} from 'shards-react'
 import {faEdit} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 export default class Table extends React.Component {
   static defaultProps = {
     cols: [],
-    data: [],
+    rows: [],
     selected: []
   }
 
@@ -16,7 +16,7 @@ export default class Table extends React.Component {
 
   render() {
     return (
-      <Container>
+      <div style={{padding: 10}}>
         <Row key="head" style={{borderBottom: '1px solid rgba(0, 0, 0, 0.25)', fontWeight: 'bold'}}>
           {this.props.onSelect && <Col xs={1} sm={1} md={1} lg={1}></Col>}
           {this.props.cols.map(col => (
@@ -24,7 +24,7 @@ export default class Table extends React.Component {
           ))}
           {this.props.onUpdate && <Col xs={1} sm={1} md={1} lg={1}></Col>}
         </Row>
-        {this.props.data.map(row => (
+        {this.props.rows.map(row => (
           <Row key={row.id} style={{borderBottom: '1px solid rgba(0, 0, 0, 0.15)', marginBottom: 3}}>
             {this.props.onSelect &&
               <Col xs={1} sm={1} md={1} lg={1}>
@@ -52,7 +52,7 @@ export default class Table extends React.Component {
             }
           </Row>
         ))}
-      </Container>
+      </div>
     )
   }
 }

@@ -3,7 +3,7 @@ import React from 'react'
 
 import {Button, ButtonGroup, ButtonToolbar} from 'shards-react'
 
-const ResponderToolbar = (props) => (
+const UserToolbar = (props) => (
   <ButtonToolbar>
     <ButtonGroup className="mr-2" size="sm">
       <Button
@@ -26,4 +26,4 @@ const ResponderToolbar = (props) => (
   </ButtonToolbar>
 )
 
-export default ResponderToolbar
+export default UserToolbar

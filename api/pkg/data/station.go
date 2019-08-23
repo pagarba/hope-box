@@ -9,5 +9,5 @@ type Station struct {
 	UpdatedAt time.Time  `gorm:"" json:"updatedAt"`
 	Latitude  string     `gorm:"" json:"latitude"`
 	Longitude string     `gorm:"" json:"longitude"`
-	Name      string     `gorm:"unique;not null" json:"name"`
+	Name      string     `binding:"required" gorm:"unique;not null" json:"name"`
 }

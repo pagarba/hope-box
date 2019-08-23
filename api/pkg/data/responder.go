@@ -9,5 +9,5 @@ type Responder struct {
 	UpdatedAt time.Time  `gorm:"" json:"updatedAt"`
 	IMSI      string     `gorm:"unique_index" json:"imsi"`
 	MSISDN    string     `gorm:"unique_index" json:"msisdn"`
-	Name      string     `gorm:"unique;not null" json:"name"`
+	Name      string     `binding:"required" gorm:"unique;not null" json:"name"`
 }

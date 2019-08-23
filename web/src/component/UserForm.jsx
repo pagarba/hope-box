@@ -13,7 +13,7 @@ import {
 } from 'shards-react'
 import CoreForm from '../core/Form'
 
-export default class ResponderForm extends CoreForm {
+export default class UserForm extends CoreForm {
   constructor(props) {
     super(props)
 
@@ -29,7 +29,7 @@ export default class ResponderForm extends CoreForm {
     return (
       <Modal open={this.props.open} toggle={this.props.onClose}>
         <ModalHeader>
-          {this.props.data ? 'Update' : 'Create'} Responder
+          {this.props.data ? 'Update' : 'Create'} User
         </ModalHeader>
         <ModalBody>
           <Form>
