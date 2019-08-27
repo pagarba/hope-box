@@ -13,6 +13,7 @@
 ## Settings
 ```json
 {
+  "id": 1,
   "latitude": "",
   "longitude": "",
   "ssid": "",
@@ -34,8 +35,10 @@
 ```json
 {
   "id": 1,
+  "bts": 1,
+  "esi": 5,
   "imsi": "IMSI_NUMBER",
   "msisdn": "123456",
-  "esi": 5
+  "name": "John Anderson"
 }
 ```

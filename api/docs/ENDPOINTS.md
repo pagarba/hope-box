@@ -10,7 +10,6 @@ _Note: for post and put JSON data please refer to the [Data](DATA.md) documentat
 | PUT | /responder | N/A | Update the responder information. |
 | GET | /settings | N/A | Return the settings. |
 | PUT | /settings | N/A | Update the settings. |
-| POST | /sms | N/A | Send a SMS message to a number. |
 | DELETE | /station | id | Delete a station by id. |
 | GET | /station | limit,skip | Get a list of all stations. |
 | POST | /station | N/A | Add a new base station. |
@@ -19,4 +18,3 @@ _Note: for post and put JSON data please refer to the [Data](DATA.md) documentat
 | GET | /user | limit,skip | Get a list of all users. |
 | POST | /user | N/A | Add a new user. |
 | PUT | /user | N/A | Update a user's information. |
-| POST | /ussd | N/A | Force a USSD session for a number. |
