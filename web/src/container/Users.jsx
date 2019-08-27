@@ -11,7 +11,7 @@ class Users extends CoreContainer {
   constructor(props) {
     super(props)
 
-    this.state.cols = ['imsi', 'msisdn', 'name']
+    this.state.cols = ['bts', 'esi', 'imsi', 'msisdn', 'name']
     this.form = UserForm
     this.title = 'Users'
     this.toolbar = UserToolbar
@@ -28,8 +28,9 @@ class Users extends CoreContainer {
   }
 
   loadData = () => {
-    this.props._onGet(this.state.limit, this.state.skip)
-      .then(rows => this.setState({rows, selected: []}))
+    //this.props._onGet(this.state.limit, this.state.skip)
+    //  .then(rows => this.setState({rows, selected: []}))
+    this.setState({rows: [...this.props.users], selected: []})
   }
 
   saveData = data => {

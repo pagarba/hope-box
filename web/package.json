@@ -8,6 +8,7 @@
   "private": true,
   "scripts": {
     "build": "webpack",
+    "build:images": "cp -fR node_modules/leaflet/dist/images/*.png dist/images/",
     "start": "webpack-dev-server"
   },
   "dependencies": {
@@ -15,9 +16,12 @@
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "leaflet": "^1.5.1",
     "lodash": "^4.17.15",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-leaflet": "^2.4.0",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.4",

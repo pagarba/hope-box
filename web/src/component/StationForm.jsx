@@ -18,8 +18,8 @@ export default class StationForm extends CoreForm {
     super(props)
 
     this.initState = {
-      imsi: '',
-      msisdn: '',
+      latitude: '',
+      longitude: '',
       name: ''
     }
     this.state = {...this.initState}
@@ -34,29 +34,29 @@ export default class StationForm extends CoreForm {
         <ModalBody>
           <Form>
             <FormGroup>
-              <label htmlFor="imsi">IMSI</label>
+              <label htmlFor="latitude">Latitude</label>
               <FormInput
-                id="imsi"
+                id="latitude"
                 onChange={this.handleChange}
-                placeholder="000000000000000"
+                placeholder="34.0522342"
                 type="text"
-                value={this.state.imsi} />
+                value={this.state.latitude} />
             </FormGroup>
             <FormGroup>
-              <label htmlFor="msisdn">MSISDN</label>
+              <label htmlFor="longitude">Longitude</label>
               <FormInput
-                id="msisdn"
+                id="longitude"
                 onChange={this.handleChange}
-                placeholder="123456"
+                placeholder="-118.2436849"
                 type="text"
-                value={this.state.msisdn} />
+                value={this.state.longitude} />
             </FormGroup>
             <FormGroup>
               <label htmlFor="name">Name</label>
               <FormInput
                 id="name"
                 onChange={this.handleChange}
-                placeholder="John Doe"
+                placeholder="BTS 1"
                 type="text"
                 value={this.state.name} />
             </FormGroup>

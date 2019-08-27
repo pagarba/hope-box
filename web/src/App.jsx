@@ -10,7 +10,7 @@ import {HashRouter, Route, Switch, withRouter} from 'react-router-dom'
 import {Alert} from 'shards-react'
 import {clearError} from './lib/actions'
 import Dashboard from './container/Dashboard'
-import Map from './container/Map'
+import _Map from './container/Map'
 import Navigation from './component/Navigation'
 import Responders from './container/Responders'
 import Settings from './container/Settings'
@@ -41,7 +41,7 @@ class App extends React.Component {
           </Alert>
           <Switch>
             <Route component={Dashboard} path="/dashboard" />
-            <Route component={Map} path="/map" />
+            <Route component={_Map} path="/map" />
             <Route component={Responders} path="/responders" />
             <Route component={Stations} path="/stations" />
             <Route component={Settings} path="/settings" />

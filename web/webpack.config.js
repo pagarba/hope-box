@@ -1,3 +1,4 @@
+
 const htmlPlugin = require('html-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
@@ -25,7 +26,7 @@ module.exports = {
         test: /\.s?css$/,
         use: [
           {loader: 'style-loader'},
-          {loader: 'css-loader'},
+          {loader: 'css-loader', options: {importLoaders: 1, url: false}},
           {loader: 'sass-loader'}
         ]
       }
@@ -48,7 +49,7 @@ module.exports = {
       },
       hash: true,
       xhtml: true
-    })
+    }),
   ],
   resolve: {
     alias: {},

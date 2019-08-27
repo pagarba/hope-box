@@ -24,34 +24,41 @@ export default class Table extends React.Component {
           ))}
           {this.props.onUpdate && <Col xs={1} sm={1} md={1} lg={1}></Col>}
         </Row>
-        {this.props.rows.map(row => (
-          <Row key={row.id} style={{borderBottom: '1px solid rgba(0, 0, 0, 0.15)', marginBottom: 3}}>
-            {this.props.onSelect &&
-              <Col xs={1} sm={1} md={1} lg={1}>
-                <FormCheckbox
-                  checked={this.isChecked(row.id)}
-                  id={row.id}
-                  onChange={ev => this.props.onSelect(ev.target.id)}
-                  value={row.id} />
-              </Col>
-            }
-            {this.props.cols.map(col => (
-              <Col key={col}>{row[col]}</Col>
-            ))}
-            {this.props.onUpdate &&
-              <Col xs={1} sm={1} md={1} lg={1}>
-                <Button
-                  onClick={() => this.props.onUpdate(row.id)}
-                  pill
-                  size="sm"
-                  style={{padding: '2px 6px'}}
-                  theme="light">
-                  <FontAwesomeIcon icon={faEdit} />
-                </Button>
-              </Col>
-            }
-          </Row>
-        ))}
+        <div style={{
+          height: '75vh',
+          maxHeight: '75vh',
+          overflowX: 'hidden',
+          overflowY: 'auto',
+        }}>
+          {this.props.rows.map(row => (
+            <Row key={row.id} style={{borderBottom: '1px solid rgba(0, 0, 0, 0.15)', marginBottom: 3}}>
+              {this.props.onSelect &&
+                <Col xs={1} sm={1} md={1} lg={1}>
+                  <FormCheckbox
+                    checked={this.isChecked(row.id)}
+                    id={row.id}
+                    onChange={ev => this.props.onSelect(ev.target.id)}
+                    value={row.id} />
+                </Col>
+              }
+              {this.props.cols.map(col => (
+                <Col key={col}>{row[col]}</Col>
+              ))}
+              {this.props.onUpdate &&
+                <Col xs={1} sm={1} md={1} lg={1}>
+                  <Button
+                    onClick={() => this.props.onUpdate(row.id)}
+                    pill
+                    size="sm"
+                    style={{padding: '2px 6px'}}
+                    theme="light">
+                    <FontAwesomeIcon icon={faEdit} />
+                  </Button>
+                </Col>
+              }
+            </Row>
+          ))}
+        </div>
       </div>
     )
   }
