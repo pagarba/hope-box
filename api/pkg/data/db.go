@@ -67,6 +67,9 @@ func Open(path string) (err error) {
 	}
 
 	db.AutoMigrate(&Responder{})
+	db.AutoMigrate(&Settings{})
+	db.AutoMigrate(&Station{})
+	db.AutoMigrate(&User{})
 	return
 }
 

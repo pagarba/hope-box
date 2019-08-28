@@ -5,6 +5,8 @@
 {
   "id": 1,
   "imsi": "IMSI_NUMBER",
+  "latitude": "",
+  "longitude": "",
   "msisdn": "123456",
   "name": "John Doe"
 }
@@ -38,6 +40,8 @@
   "bts": 1,
   "esi": 5,
   "imsi": "IMSI_NUMBER",
+  "latitude": "",
+  "longitude": "",
   "msisdn": "123456",
   "name": "John Anderson"
 }

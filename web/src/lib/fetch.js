@@ -5,7 +5,7 @@ const getDataOrError = res => {
   return res.json()
     .then(data => {
       if (!res.ok || res.status < 200 || res.status > 399) {
-        console.log(data)
+        console.log('Fetch Error:', res, data)
         throw new Error(data.error || res.statusText || res)
       }
       return data
@@ -30,7 +30,7 @@ const request = (route, opts) => {
     ...opts,
     headers: {
       'Accept': C.CONTENT_TYPE,
-      'Authorization': 'NONE',
+      'Authorization': 'Bearer NONE',
       'Content-Type': C.CONTENT_TYPE,
     }
   }

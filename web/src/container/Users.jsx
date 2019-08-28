@@ -28,9 +28,8 @@ class Users extends CoreContainer {
   }
 
   loadData = () => {
-    //this.props._onGet(this.state.limit, this.state.skip)
-    //  .then(rows => this.setState({rows, selected: []}))
-    this.setState({rows: [...this.props.users], selected: []})
+    this.props._onGet(this.state.limit, this.state.skip)
+      .then(rows => this.setState({rows, selected: []}))
   }
 
   saveData = data => {

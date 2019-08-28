@@ -59,7 +59,7 @@ export default class LeafletMap extends React.Component {
                 iconUrl: this.getIcon(m.data, m.type),
                 iconSize: [24, 24],
               })}
-              key={m.data.id} >
+              key={`${m.type}-${m.data.id}`} >
               <Popup>{m.popup}</Popup>
             </Marker>
           )

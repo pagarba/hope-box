@@ -11,7 +11,7 @@ import {
   FormCheckbox,
   Row,
 } from 'shards-react'
-import {getResponders, getStations, getUsers} from '../lib/actions'
+import {getResponder, getStation, getUser} from '../lib/actions'
 import LeafletMap from '../component/LeafletMap'
 import ResponderInfo from '../component/ResponderInfo'
 import StationInfo from '../component/StationInfo'
@@ -34,16 +34,7 @@ class _Map extends React.Component {
     this.loadData()
   }
 
-  handleFilter = key => {
-    this.setState({
-      filter: {
-        ...this.state.filter,
-        [key]: !this.state.filter[key],
-      },
-    }, this.loadData)
-  }
-
-  loadData = () => {
+  filterData = () => {
     const markers = []
 
     if (this.state.filter.responders) {
@@ -83,6 +74,24 @@ class _Map extends React.Component {
     }
 
     this.setState({markers})
+  }
+
+  handleFilter = key => {
+    this.setState({
+      filter: {
+        ...this.state.filter,
+        [key]: !this.state.filter[key],
+      },
+    }, this.loadData)
+  }
+
+  loadData = () => {
+    Promise.all([
+        this.props._onGetResponders(),
+        this.props._onGetStations(),
+        this.props._onGetUsers(),
+      ])
+      .then(this.filterData)
   }
 
   render() {
@@ -149,7 +158,9 @@ class _Map extends React.Component {
 }
 
 const mapDispatch = dispatch => ({
-
+  _onGetResponders: () => dispatch(getResponder(1000, 0)),
+  _onGetStations: () => dispatch(getStation(1000, 0)),
+  _onGetUsers: () => dispatch(getUser(1000, 0)),
 })
 
 const mapState = state => ({

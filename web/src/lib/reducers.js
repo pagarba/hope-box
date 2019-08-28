@@ -44,7 +44,7 @@ export const error = (state = null, {payload, type}) => {
   return state
 }
 
-export const responders = (state = _responders, {payload, type}) => {
+export const responders = (state = [], {payload, type}) => {
   switch(type) {
     case C.RESPONDERS:
       return [...payload]
@@ -62,7 +62,7 @@ export const settings = (state = {}, {payload, type}) => {
   }
 }
 
-export const stations = (state = _stations, {payload, type}) => {
+export const stations = (state = [], {payload, type}) => {
   switch(type) {
     case C.STATIONS:
       return [...payload]
@@ -71,7 +71,7 @@ export const stations = (state = _stations, {payload, type}) => {
   }
 }
 
-export const users = (state = _users, {payload, type}) => {
+export const users = (state = [], {payload, type}) => {
   switch(type) {
     case C.USERS:
       return [...payload]
