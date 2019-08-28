@@ -7,7 +7,7 @@ echo "Installing API!" && \
 if [ ! -d "/usr/local/go" ]; then
   echo "Installing Go..." && \
   wget "https://dl.google.com/go/$GO_TAR" && \
-  tar -C /usr/local -zxf $GO_TAR && \
+  sudo tar -C /usr/local -zxf $GO_TAR && \
   sudo echo "PATH=\$PATH:/usr/local/go/bin" >> /etc/profile && \
   mkdir -p ~/go/bin ~/go/src && \
   echo "GOPATH=\$HOME/go" >> ~/.profile && \
