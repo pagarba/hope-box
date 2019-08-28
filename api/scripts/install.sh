@@ -8,7 +8,8 @@ if [ ! -d "/usr/local/go" ]; then
   echo "Installing Go..." && \
   wget "https://dl.google.com/go/$GO_TAR" && \
   sudo tar -C /usr/local -zxf $GO_TAR && \
-  sudo echo "PATH=\$PATH:/usr/local/go/bin" >> /etc/profile && \
+  sudo echo "GOROOT=/usr/local/go" >> /etc/profile && \
+  sudo echo "PATH=\$PATH:\$GOROOT/bin" >> /etc/profile && \
   mkdir -p ~/go/bin ~/go/src && \
   echo "GOPATH=\$HOME/go" >> ~/.profile && \
   sudo source /etc/profile && \
