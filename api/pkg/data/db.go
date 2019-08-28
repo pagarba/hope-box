@@ -18,6 +18,12 @@ func Create(v interface{}) (err error) {
 	return
 }
 
+func Count(v, count interface{}) (err error) {
+	db.Find(v).Count(count)
+	err = Error()
+	return
+}
+
 func Delete(v interface{}) (err error) {
 	db.Delete(v)
 	err = Error()
@@ -49,12 +55,24 @@ func Find(v interface{}) (err error) {
 	return
 }
 
+func GetByID(v interface{}, id uint) (err error) {
+	db.Where("id = ?", id).First(v)
+	err = Error()
+	return
+}
+
 func Open(path string) (err error) {
 	if db, err = gorm.Open("sqlite3", path); err != nil {
 		return
 	}
 
 	db.AutoMigrate(&Responder{})
+	return
+}
+
+func Page(v interface{}, limit, offset uint) (err error) {
+	db.Limit(limit).Offset(offset).Find(v)
+	err = Error()
 	return
 }
 

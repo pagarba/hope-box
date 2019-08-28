@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/pagarba/hope-box/api/pkg/api"
 	"github.com/pagarba/hope-box/api/pkg/data"
+	v1 "github.com/pagarba/hope-box/api/pkg/v1"
 	"github.com/spf13/viper"
 )
 
@@ -32,7 +32,7 @@ func main() {
 	// API
 	ip := viper.GetString("ip")
 	port := uint16(viper.GetUint("port"))
-	if err := api.Run(ip, port, *fwebsite); err != nil {
+	if err := v1.Run(ip, port, *fwebsite); err != nil {
 		log.Fatal(err)
 	}
 }
