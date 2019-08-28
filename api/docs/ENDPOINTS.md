@@ -17,4 +17,5 @@ _Note: for post and put JSON data please refer to the [Data](DATA.md) documentat
 | DELETE | /user | id | Delete a user by id. |
 | GET | /user | limit,skip | Get a list of all users. |
 | POST | /user | N/A | Add a new user. |
+| PUT | /user/esi | N/A | Update a user's ESI information by IMSI. |
 | PUT | /user | N/A | Update a user's information. |
