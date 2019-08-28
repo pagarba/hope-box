@@ -91,7 +91,7 @@ fi
 if [ ! -f "osmo-trx/OK" ]; then
     echo -e "${YELLOW}Compiling osmo-trx...${NC}"
     cd osmo-trx && \
-    #git checkout $OSMOTRX_V && \
+    git checkout $OSMOTRX_V && \
     autoreconf -i && \
     ./configure --with-lms --without-uhd && \
     make -j4 && \
