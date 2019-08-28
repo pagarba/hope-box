@@ -3,9 +3,9 @@
 source $PWD/../scripts/functions.sh
 
 info "Installing NPM libraries..." && \
-npm install && \
+npm install >/dev/null && \
 
 info "Building WEB..." && \
-npm run build && \
+npm run build >/dev/null && \
 
 success "Complete!"

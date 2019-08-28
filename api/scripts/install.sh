@@ -29,17 +29,17 @@ go mod download && \
 PYTHON=$(which python)
 if [ -z "$PYTHON" ]; then
   info "Installing Python..." && \
-  sudo apt install -y python python-pip
+  sudo apt install -y python python-pip >/dev/null
 fi
 
 info "Installing Python libraries..." && \
-pip install requests && \
+pip install requests >/dev/null && \
 
 REDIS=$(which redis-server)
 if [ -z "$REDIS" ]; then
   info "Installing Redis..." && \
-  sudo apt install -y redis-server && \
-  sudo systemctl enable redis-server
+  sudo apt install -y redis-server >/dev/null && \
+  sudo systemctl enable redis-server >/dev/null
 fi
 
-success "Done"
+success "API installation complete"

@@ -2,6 +2,8 @@
 
 source $PWD/scripts/functions.sh
 
+info "Starting full installation..." && \
+
 info "Install required API software..." && \
 cd api/ && \
 bash scripts/install.sh && \
@@ -18,4 +20,4 @@ info "Install required WEB software..." && \
 cd ../web/ && \
 bash scripts/install.sh && \
 
-success "Complete!"
+success "Full installation complete!"
