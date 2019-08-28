@@ -35,29 +35,40 @@ class _Map extends React.Component {
   }
 
   filterData = () => {
+    const bts = {}
     const markers = []
+
+    this.props.stations.forEach(data => {
+      bts[data.id] = {
+        latitude: data.latitude,
+        longitude: data.longitude,
+      }
+
+      if (this.state.filter.stations) {
+        markers.push({
+          data,
+          popup: `Station: ${data.id}`,
+          props: {
+            position: [data.latitude, data.longitude],
+            zIndexOffset: 30,
+          },
+          type: 'stations',
+        })
+      }
+    })
 
     if (this.state.filter.responders) {
       this.props.responders.forEach(data => markers.push({
         data,
         popup: `Responder: ${data.id}`,
         props: {
-          position: [data.latitude, data.longitude],
+          position: [
+            data.latitude || C.LATITUDE,
+            data.longitude || C.LONGITUDE,
+          ],
           zIndexOffset: 20,
         },
         type: 'responders',
-      }))
-    }
-
-    if (this.state.filter.stations) {
-      this.props.stations.forEach(data => markers.push({
-        data,
-        popup: `Station: ${data.id}`,
-        props: {
-          position: [data.latitude, data.longitude],
-          zIndexOffset: 30,
-        },
-        type: 'stations',
       }))
     }
 
@@ -66,7 +77,10 @@ class _Map extends React.Component {
         data,
         popup: `User: ${data.id}`,
         props: {
-          position: [data.latitude, data.longitude],
+          position: [
+            data.latitude || bts[data.bts].latitude,
+            data.longitude || bts[data.bts].longitude,
+          ],
           zIndexOffset: 10,
         },
         type: 'users',
@@ -82,7 +96,7 @@ class _Map extends React.Component {
         ...this.state.filter,
         [key]: !this.state.filter[key],
       },
-    }, this.loadData)
+    }, this.filterData)
   }
 
   loadData = () => {

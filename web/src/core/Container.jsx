@@ -9,6 +9,7 @@ import {
   ModalFooter,
   Row,
 } from 'shards-react'
+import Pagination from '../component/Pagination'
 import Table from '../component/Table'
 
 export default class Container extends React.Component {
@@ -19,6 +20,7 @@ export default class Container extends React.Component {
     this.state = {
       cols: [],
       confirm: {resolve: null, reject: null},
+      count: 0,
       data: {},
       limit: 10,
       open: false,
@@ -54,6 +56,8 @@ export default class Container extends React.Component {
   deleteData = () => {
     console.log('TODO: deleteData')
   }
+
+  handleChange = (k, v, cb) => this.setState({[k]: v}, cb)
 
   handleCreate = () => this.setState({data: {}}, this.toggleForm)
 
@@ -103,6 +107,14 @@ export default class Container extends React.Component {
               selected={this.state.selected.length} />
           </Col>
           <Col>
+            <Pagination
+              count={this.state.count}
+              limit={this.state.limit}
+              onLimit={v => this.handleChange('limit', v, this.loadData)}
+              onSkip={v => this.handleChange('skip', v, this.loadData)}
+              skip={this.state.skip} />
+          </Col>
+          <Col>
             <h3 style={{margin: 10, textAlign: 'right'}}>{this.title}</h3>
           </Col>
         </Row>
@@ -112,7 +124,8 @@ export default class Container extends React.Component {
               data={this.state.data}
               onClose={this.toggleForm}
               onSave={this.saveData}
-              open={this.state.open} />
+              open={this.state.open}
+              stations={this.props.stations || []} />
           }
           <Table
             cols={this.state.cols}

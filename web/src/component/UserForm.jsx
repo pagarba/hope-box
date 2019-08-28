@@ -24,8 +24,10 @@ export default class UserForm extends CoreForm {
       bts: '0',
       esi: '0',
       imsi: '',
+      latitude: '',
+      longitude: '',
       msisdn: '',
-      name: ''
+      name: '',
     }
     this.state = {...this.initState}
   }
@@ -46,13 +48,12 @@ export default class UserForm extends CoreForm {
                     id="bts"
                     onChange={this.handleChange}
                     placeholder="0"
+                    size="sm"
                     value={this.state.bts}>
                     <option value="0">0</option>
-                    <option value="1">Station: 1</option>
-                    <option value="2">Station: 2</option>
-                    <option value="3">Station: 3</option>
-                    <option value="4">Station: 4</option>
-                    <option value="5">Station: 5</option>
+                    {this.props.stations.map(station => (
+                      <option key={station.id} value={station.id}>{station.name}</option>
+                    ))}
                   </FormSelect>
                 </FormGroup>
               </Col>
@@ -63,6 +64,7 @@ export default class UserForm extends CoreForm {
                     id="esi"
                     onChange={this.handleChange}
                     placeholder="0"
+                    size="sm"
                     value={this.state.esi}>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -82,6 +84,7 @@ export default class UserForm extends CoreForm {
                     id="imsi"
                     onChange={this.handleChange}
                     placeholder="000000000000000"
+                    size="sm"
                     type="text"
                     value={this.state.imsi} />
                 </FormGroup>
@@ -93,8 +96,35 @@ export default class UserForm extends CoreForm {
                     id="msisdn"
                     onChange={this.handleChange}
                     placeholder="123456"
+                    size="sm"
                     type="text"
                     value={this.state.msisdn} />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <FormGroup>
+                  <label htmlFor="latitude">Latitude</label>
+                  <FormInput
+                    id="latitude"
+                    onChange={this.handleChange}
+                    placeholder="34.0522342"
+                    size="sm"
+                    type="text"
+                    value={this.state.latitude} />
+                </FormGroup>
+              </Col>
+              <Col>
+                <FormGroup>
+                  <label htmlFor="longitude">Longitude</label>
+                  <FormInput
+                    id="longitude"
+                    onChange={this.handleChange}
+                    placeholder="-118.2436849"
+                    size="sm"
+                    type="text"
+                    value={this.state.longitude} />
                 </FormGroup>
               </Col>
             </Row>
@@ -104,6 +134,7 @@ export default class UserForm extends CoreForm {
                 id="name"
                 onChange={this.handleChange}
                 placeholder="John Doe"
+                size="sm"
                 type="text"
                 value={this.state.name} />
             </FormGroup>

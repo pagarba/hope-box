@@ -3,13 +3,15 @@ import React from 'react'
 
 import {
   Button,
+  Col,
   Form,
   FormGroup,
   FormInput,
   Modal,
   ModalBody,
   ModalFooter,
-  ModalHeader
+  ModalHeader,
+  Row,
 } from 'shards-react'
 import CoreForm from '../core/Form'
 
@@ -33,30 +35,39 @@ export default class StationForm extends CoreForm {
         </ModalHeader>
         <ModalBody>
           <Form>
-            <FormGroup>
-              <label htmlFor="latitude">Latitude</label>
-              <FormInput
-                id="latitude"
-                onChange={this.handleChange}
-                placeholder="34.0522342"
-                type="text"
-                value={this.state.latitude} />
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="longitude">Longitude</label>
-              <FormInput
-                id="longitude"
-                onChange={this.handleChange}
-                placeholder="-118.2436849"
-                type="text"
-                value={this.state.longitude} />
-            </FormGroup>
+            <Row>
+              <Col>
+                <FormGroup>
+                  <label htmlFor="latitude">Latitude</label>
+                  <FormInput
+                    id="latitude"
+                    onChange={this.handleChange}
+                    placeholder="34.0522342"
+                    size="sm"
+                    type="text"
+                    value={this.state.latitude} />
+                </FormGroup>
+              </Col>
+              <Col>
+                <FormGroup>
+                  <label htmlFor="longitude">Longitude</label>
+                  <FormInput
+                    id="longitude"
+                    onChange={this.handleChange}
+                    placeholder="-118.2436849"
+                    size="sm"
+                    type="text"
+                    value={this.state.longitude} />
+                </FormGroup>
+              </Col>
+            </Row>
             <FormGroup>
               <label htmlFor="name">Name</label>
               <FormInput
                 id="name"
                 onChange={this.handleChange}
                 placeholder="BTS 1"
+                size="sm"
                 type="text"
                 value={this.state.name} />
             </FormGroup>

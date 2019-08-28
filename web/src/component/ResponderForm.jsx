@@ -3,13 +3,15 @@ import React from 'react'
 
 import {
   Button,
+  Col,
   Form,
   FormGroup,
   FormInput,
   Modal,
   ModalBody,
   ModalFooter,
-  ModalHeader
+  ModalHeader,
+  Row,
 } from 'shards-react'
 import CoreForm from '../core/Form'
 
@@ -19,8 +21,10 @@ export default class ResponderForm extends CoreForm {
 
     this.initState = {
       imsi: '',
+      latitude: '',
+      longitude: '',
       msisdn: '',
-      name: ''
+      name: '',
     }
     this.state = {...this.initState}
   }
@@ -39,6 +43,7 @@ export default class ResponderForm extends CoreForm {
                 id="imsi"
                 onChange={this.handleChange}
                 placeholder="000000000000000"
+                size="sm"
                 type="text"
                 value={this.state.imsi} />
             </FormGroup>
@@ -48,15 +53,43 @@ export default class ResponderForm extends CoreForm {
                 id="msisdn"
                 onChange={this.handleChange}
                 placeholder="123456"
+                size="sm"
                 type="text"
                 value={this.state.msisdn} />
             </FormGroup>
+            <Row>
+              <Col>
+                <FormGroup>
+                  <label htmlFor="latitude">Latitude</label>
+                  <FormInput
+                    id="latitude"
+                    onChange={this.handleChange}
+                    placeholder="34.0522342"
+                    size="sm"
+                    type="text"
+                    value={this.state.latitude} />
+                </FormGroup>
+              </Col>
+              <Col>
+                <FormGroup>
+                  <label htmlFor="longitude">Longitude</label>
+                  <FormInput
+                    id="longitude"
+                    onChange={this.handleChange}
+                    placeholder="-118.2436849"
+                    size="sm"
+                    type="text"
+                    value={this.state.longitude} />
+                </FormGroup>
+              </Col>
+            </Row>
             <FormGroup>
               <label htmlFor="name">Name</label>
               <FormInput
                 id="name"
                 onChange={this.handleChange}
                 placeholder="John Doe"
+                size="sm"
                 type="text"
                 value={this.state.name} />
             </FormGroup>

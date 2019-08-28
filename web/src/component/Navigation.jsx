@@ -2,21 +2,19 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 
-import {faSearch} from '@fortawesome/free-solid-svg-icons'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {
+  Button,
   Navbar,
   NavbarToggler,
   NavbarBrand,
   Nav,
   NavItem,
   NavLink,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  FormInput,
   Collapse
 } from 'shards-react'
+import {faQuestion} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import HelpModal from './HelpModal'
 
 class Navigation extends React.Component {
   static defaultProps = {
@@ -28,7 +26,8 @@ class Navigation extends React.Component {
 
     this.state = {
       dropdownOpen: false,
-      collapseOpen: false
+      collapseOpen: false,
+      helpOpen: false,
     }
   }
 
@@ -43,6 +42,8 @@ class Navigation extends React.Component {
     })
   }
 
+  toggleHelp = () => this.setState({helpOpen: !this.state.helpOpen})
+
   toggleNavbar = () => {
     this.setState({
       ...this.state,
@@ -53,7 +54,7 @@ class Navigation extends React.Component {
   }
 
   render() {
-    const urls = ['Dashboard', 'Map', 'Users', 'Responders', 'Stations', 'Settings']
+    const urls = ['Dashboard', 'Map', 'Responders', 'Stations', 'Users', 'Settings']
     const version = `v${this.props.version}`
 
     const navItems = urls.map(url => {
@@ -77,14 +78,10 @@ class Navigation extends React.Component {
             {navItems}
           </Nav>
           <Nav navbar className='ml-auto'>
-            <InputGroup size='sm' seamless>
-              <InputGroupAddon type='prepend'>
-                <InputGroupText>
-                  <FontAwesomeIcon icon={faSearch} />
-                </InputGroupText>
-              </InputGroupAddon>
-              <FormInput className='border-0' placeholder='Search...' />
-            </InputGroup>
+            <Button onClick={this.toggleHelp} pill>
+              <FontAwesomeIcon icon={faQuestion} />
+            </Button>
+            <HelpModal open={this.state.helpOpen} onClose={this.toggleHelp} />
           </Nav>
         </Collapse>
       </Navbar>

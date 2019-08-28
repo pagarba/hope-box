@@ -12,12 +12,26 @@ import {
   Col,
   Row,
 } from 'shards-react'
+import {getResponder, getStation, getUser} from '../lib/actions'
 
 class Dashboard extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {}
+  }
+
+  componentDidMount() {
+    this.loadData()
+  }
+
+  loadData = () => {
+    Promise.all([
+        this.props._onGetResponders(),
+        this.props._onGetStations(),
+        this.props._onGetUsers(),
+      ])
+      .then(this.filterData)
   }
 
   render() {
@@ -63,7 +77,9 @@ class Dashboard extends React.Component {
 }
 
 const mapDispatch = dispatch => ({
-
+  _onGetResponders: () => dispatch(getResponder(1000, 0)),
+  _onGetStations: () => dispatch(getStation(1000, 0)),
+  _onGetUsers: () => dispatch(getUser(1000, 0)),
 })
 
 const mapState = state => ({
