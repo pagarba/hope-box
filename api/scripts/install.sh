@@ -6,7 +6,9 @@ echo "Installing API!" && \
 
 if [ ! -d "/usr/local/go" ]; then
   echo "Installing Go..." && \
-  wget "https://dl.google.com/go/$GO_TAR" && \
+  if [ ! -f "$GO_TAR" ]; then
+    wget "https://dl.google.com/go/$GO_TAR"
+  fi
   sudo tar -C /usr/local -zxf $GO_TAR && \
   sudo echo "GOROOT=/usr/local/go" >> /etc/profile && \
   sudo echo "PATH=\$PATH:\$GOROOT/bin" >> /etc/profile && \
@@ -17,11 +19,12 @@ if [ ! -d "/usr/local/go" ]; then
 fi
 
 echo "Installing Go libraries..." && \
-go get github.com/gin-contrib/cors && \
-go get github.com/gin-gonic/gin && \
-go get github.com/jinzhu/gorm && \
-go get github.com/mattn/go-sqlite3 && \
-go get github.com/spf13/viper && \
+#go get github.com/gin-contrib/cors && \
+#go get github.com/gin-gonic/gin && \
+#go get github.com/jinzhu/gorm && \
+#go get github.com/mattn/go-sqlite3 && \
+#go get github.com/spf13/viper && \
+go mod download && \
 
 PYTHON=$(which python)
 if [ -z "$PYTHON" ]; then

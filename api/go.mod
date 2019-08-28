@@ -1,4 +1,4 @@
-module github.com/pagarba/hope-box
+module github.com/pagarba/hope-box/api
 
 go 1.12
 
