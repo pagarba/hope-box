@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 echo "Install required API software..." && \
 cd api/ && \
 bash scripts/install.sh && \
