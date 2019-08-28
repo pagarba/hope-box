@@ -1,12 +1,10 @@
 package v1
 
 import (
-	"fmt"
-
 	"github.com/gin-gonic/gin"
 )
 
-func routes(r *gin.Engine, path string) {
+func routes(r *gin.Engine) {
 	// Responder
 	r.DELETE("/responder", deleteResponder)
 	r.GET("/responder", getResponder)
@@ -30,8 +28,4 @@ func routes(r *gin.Engine, path string) {
 	r.PUT("/user/esi", putUserESI)
 	// USSD
 	r.POST("/ussd", postUSSD)
-
-	// Static file routes from website.
-	r.StaticFile("/bundle.js", fmt.Sprintf("%s/bundle.js", path))
-	r.StaticFile("/", fmt.Sprintf("%s/index.html", path))
 }
