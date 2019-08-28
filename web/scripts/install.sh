@@ -1,9 +1,11 @@
 #!/bin/bash
 
-echo "Installing NPM libraries..." && \
+source $PWD/../scripts/functions.sh
+
+info "Installing NPM libraries..." && \
 npm install && \
 
-echo "Building WEB..." && \
+info "Building WEB..." && \
 npm run build && \
 
-echo "Complete!"
+success "Complete!"

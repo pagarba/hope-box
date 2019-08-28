@@ -1,5 +1,9 @@
 #!/bin/bash
 
+source $PWD/../scripts/functions.sh
+
+info "Removing build indicators..."
+
 rm -f build/libosmo-abis/OK
 rm -f build/libosmo-netif/OK
 rm -f build/libosmo-sccp/OK
@@ -13,3 +17,5 @@ rm -f build/osmo-mgw/OK
 rm -f build/osmo-msc/OK
 rm -f build/osmo-trx/OK
 rm -f build/SoapySDR/OK
+
+success "Complete!"

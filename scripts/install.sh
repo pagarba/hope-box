@@ -1,21 +1,21 @@
 #!/bin/bash
 
-set -x
+source $PWD/scripts/functions.sh
 
-echo "Install required API software..." && \
+info "Install required API software..." && \
 cd api/ && \
 bash scripts/install.sh && \
 
-echo "Install required BTS software..." && \
+info "Install required BTS software..." && \
 cd ../bts/ && \
 bash scripts/install.sh && \
 
-echo "Install required CC software..." && \
+info "Install required CC software..." && \
 cd ../cc/ && \
 bash scripts/install.sh && \
 
-echo "Install required WEB software..." && \
+info "Install required WEB software..." && \
 cd ../web/ && \
 bash scripts/install.sh && \
 
-echo "Complete!"
+success "Complete!"

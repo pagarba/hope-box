@@ -1,9 +1,15 @@
 #!/bin/bash
 
+source $PWD/../scripts/functions.sh
+
 TERM="osmo"
 
-echo "Running processes..."
+info "Stopping processes..."
+
+info "Currently running processes..."
 ps aux | grep $TERM
 
-echo "Killing processes..."
+info "Killing matching processes..."
 sudo pkill -f $TERM
+
+success "Complete!"

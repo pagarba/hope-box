@@ -1,5 +1,7 @@
 #!/bin/bash
 
-echo "Starting API..." && \
+source $PWD/../scripts/functions.sh
+
+info "Starting API..." && \
 go run cmd/hopebox-api/main.go && \
-echo "Complete!"
+success "Complete!"

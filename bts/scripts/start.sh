@@ -1,33 +1,29 @@
 #!/bin/bash
 
-# Colors
-NC='\033[0m'
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
+source $PWD/../scripts/functions.sh
 
-echo -e "${GREEN}Starting daemons...${NC}"
+info "Starting daemons..."
 cd bts
 
-echo -e "${YELLOW}Starting osmo-hlr...${NC}"
+info "Starting osmo-hlr..."
 sudo osmo-hlr -c configs/osmo/osmo-hlr.cfg -D
 
-echo -e "${YELLOW}Starting osmo-msc...${NC}"
+info "Starting osmo-msc..."
 sudo osmo-msc -c configs/osmo/osmo-msc.cfg -D
 
-echo -e "${YELLOW}Starting osmo-stp...${NC}"
+info "Starting osmo-stp..."
 sudo osmo-stp -c configs/osmo/osmo-stp.cfg -D
 
-#echo -e "${YELLOW}Starting osmo-mgw...${NC}"
+#info "Starting osmo-mgw..."
 #sudo osmo-mgw -c configs/osmo/osmo-mgw.cfg -D
 
-echo -e "${YELLOW}Starting osmo-bsc...${NC}"
+info "Starting osmo-bsc..."
 sudo osmo-bsc -c configs/osmo/osmo-bsc.cfg -D
 
-echo -e "${YELLOW}Starting osmo-bts-trx...${NC}"
+info "Starting osmo-bts-trx..."
 sudo osmo-bts-trx -c configs/osmo/osmo-bts-trx.cfg -D
 
-echo -e "${YELLOW}Starting osmo-trx-lms...${NC}"
+info "Starting osmo-trx-lms..."
 sudo osmo-trx-lms -C configs/osmo/osmo-trx-lms.cfg
 
-echo -e "${GREEN}Complete!${NC}"
+success "Complete!"

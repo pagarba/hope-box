@@ -2,5 +2,5 @@
 
 Use the following scripts to setup the system as a whole.  Each section can be setup individually. 
 
-* `build.sh` - build the different system modules.
+* `functions.sh` - bash functions used by other scripts.
 * `install.sh` - install required libraries and updates for the system.

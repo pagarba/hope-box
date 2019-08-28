@@ -1,11 +1,11 @@
 #!/bin/bash
 
+source $PWD/../scripts/functions.sh
+
 GO_TAR="go1.12.9.linux-amd64.tar.gz"
 
-echo "Installing API!" && \
-
 if [ ! -d "/usr/local/go" ]; then
-  echo "Installing Go..." && \
+  info "Installing Go..." && \
   if [ ! -f "$GO_TAR" ]; then
     wget "https://dl.google.com/go/$GO_TAR"
   fi
@@ -18,7 +18,7 @@ if [ ! -d "/usr/local/go" ]; then
   source ~/.profile
 fi
 
-echo "Installing Go libraries..." && \
+info "Installing Go libraries..." && \
 #go get github.com/gin-contrib/cors && \
 #go get github.com/gin-gonic/gin && \
 #go get github.com/jinzhu/gorm && \
@@ -28,18 +28,18 @@ go mod download && \
 
 PYTHON=$(which python)
 if [ -z "$PYTHON" ]; then
-  echo "Installing Python..." && \
+  info "Installing Python..." && \
   sudo apt install -y python python-pip
 fi
 
-echo "Installing Python libraries..." && \
+info "Installing Python libraries..." && \
 pip install requests && \
 
 REDIS=$(which redis-server)
 if [ -z "$REDIS" ]; then
-  echo "Installing Redis..." && \
+  info "Installing Redis..." && \
   sudo apt install -y redis-server && \
   sudo systemctl enable redis-server
 fi
 
-echo "Complete!"
+success "Done"
