@@ -22,7 +22,7 @@ func middleware(r *gin.Engine) {
 	// Authorization
 	r.Use(func(c *gin.Context) {
 		h := c.GetHeader("Authorization")
-		if h != "NONE" {
+		if h != "Bearer NONE" {
 			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
 			return
 		}
