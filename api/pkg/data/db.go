@@ -84,3 +84,9 @@ func Update(v interface{}) (err error) {
 	err = Error()
 	return
 }
+
+func UpdateUserESI(imsi, esi string) (err error) {
+	db.Model(&User{ESI: esi, IMSI: imsi}).Where("imsi = ?", imsi).UpdateColumn("esi", esi)
+	err = Error()
+	return
+}

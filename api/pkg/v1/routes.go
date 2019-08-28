@@ -27,6 +27,7 @@ func routes(r *gin.Engine, path string) {
 	r.GET("/user", getUser)
 	r.POST("/user", postUser)
 	r.PUT("/user", putUser)
+	r.PUT("/user/esi", putUserESI)
 	// USSD
 	r.POST("/ussd", postUSSD)
 

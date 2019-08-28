@@ -208,6 +208,18 @@ func putUser(c *gin.Context) {
 	replyOK(c, gin.H{"result": "OK"})
 }
 
+func putUserESI(c *gin.Context) {
+	v := new(data.User)
+	c.MustBindWith(v, binding.JSON)
+
+	if err := data.UpdateUserESI(v.IMSI, v.ESI); err != nil {
+		replyError(c, err)
+		return
+	}
+
+	replyOK(c, gin.H{"result": "OK"})
+}
+
 // USSD
 
 func postUSSD(c *gin.Context) {
