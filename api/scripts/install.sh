@@ -11,7 +11,7 @@ if [ ! -d "/usr/local/go" ]; then
   sudo echo "PATH=\$PATH:/usr/local/go/bin" >> /etc/profile && \
   mkdir -p ~/go/bin ~/go/src && \
   echo "GOPATH=\$HOME/go" >> ~/.profile && \
-  source /etc/profile && \
+  sudo source /etc/profile && \
   source ~/.profile
 fi
 
