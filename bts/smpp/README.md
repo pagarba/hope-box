@@ -1,1 +1,1 @@
-# SMPP Gateway
+# HopeBox - SMPP Gateway
