@@ -10,6 +10,7 @@ Checkout the following to gain an overview of the different sections of the `CC`
 * `configs/` - configurations used for the `CC`.
   * `pi/` - files to be copied to the `Pi` after the operating system has been burned to the SD card.
 * `scripts/` - bash scripts related to the `BTS`.
+* `src/` - `CC` source code.
 
 
 ## Install
