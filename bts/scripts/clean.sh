@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source $PWD/../scripts/functions.sh
+set_category "BTS"
 
 info "Removing build indicators..."
 

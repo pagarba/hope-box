@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source $PWD/../scripts/functions.sh
+set_category "BTS:USSD"
 
 SCRIPT="osmo-euse-demo"
 

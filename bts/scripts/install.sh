@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source $PWD/../scripts/functions.sh
+set_category "BTS"
 
 # Home
 HOME=$PWD
@@ -12,12 +13,12 @@ OSMOTRX_V="1.0.0"
 info "Starting BTS installation..." && \
 
 if ! is_directory "build/"; then
-  info "Installing dependencies..." && \
+  warn "Installing dependencies..." && \
   sudo apt-get install -y software-properties-common >/dev/null && \
   sudo apt-get update -y >/dev/null && \
   sudo apt-get install -y git g++ cmake gnuplot sqlite3 gnutls-dev libsqlite3-dev libdbd-sqlite3 libortp-dev libsctp-dev libdbi-dev libtalloc-dev libi2c-dev libusb-1.0-0-dev libpcsclite-dev libfftw3-dev libwxgtk3.0-dev freeglut3-dev libtool libtool-bin autoconf automake >/dev/null
 
-  info "Creating build directory..." && \
+  warn "Creating build directory..." && \
   mkdir -p build
 else
   success "Build directory already created"
@@ -25,13 +26,13 @@ fi
 cd build && \
 
 if ! is_directory "SoapySDR/"; then
-  info "Creating SoapySDR directory..." && \
+  warn "Creating SoapySDR directory..." && \
   git clone https://github.com/pothosware/SoapySDR.git >/dev/null
 else
   success "SoapySDR directory already created"
 fi
 if ! is_file "SoapySDR/OK"; then
-  info "Compiling SoapySDR..." && \
+  warn "Compiling SoapySDR..." && \
   cd SoapySDR && \
   mkdir -p build && \
   cd build && \
@@ -47,13 +48,13 @@ else
 fi
 
 if ! is_directory "LimeSuite/"; then
-  info "Creating LimeSuite directory..." && \
+  warn "Creating LimeSuite directory..." && \
   git clone https://github.com/myriadrf/LimeSuite.git >/dev/null
 else
   success "LimeSuite directory already created"
 fi
 if ! is_file "LimeSuite/OK"; then
-  info "Compiling LimeSuite..." && \
+  warn "Compiling LimeSuite..." && \
   cd LimeSuite && \
   git checkout $LIMESUITE_V >/dev/null && \
   rm -fR buildir && \
@@ -74,13 +75,13 @@ else
 fi
 
 if ! is_directory "libosmocore/"; then
-  info "Fetching libosmocore..." && \
+  warn "Creating libosmocore directory..." && \
   git clone git://git.osmocom.org/libosmocore >/dev/null
 else
   success "libosmocore directory already created"
 fi
 if ! is_file "libosmocore/OK"; then
-  info "Compiling libosmocore..." && \
+  warn "Compiling libosmocore..." && \
   cd libosmocore && \
   autoreconf -i >/dev/null && \
   ./configure >/dev/null && \
@@ -94,13 +95,13 @@ else
 fi
 
 if ! is_directory "osmo-trx/"; then
-  info "Fetching osmo-trx..." && \
+  warn "Creating osmo-trx directory..." && \
   git clone https://git.osmocom.org/osmo-trx >/dev/null
 else
   success "osmo-trx directory already created"
 fi
 if ! is_file "osmo-trx/OK"; then
-  info "Compiling osmo-trx..." && \
+  warn "Compiling osmo-trx..." && \
   cd osmo-trx && \
   git checkout $OSMOTRX_V && \
   autoreconf -i >/dev/null && \
@@ -115,13 +116,13 @@ else
 fi
 
 if ! is_directory "libosmo-abis/"; then
-  info "Fetching libosmo-abis..." && \
+  warn "Creating libosmo-abis directory..." && \
   git clone git://git.osmocom.org/libosmo-abis >/dev/null
 else
   success "libosmo-abis directory already created"
 fi
 if ! is_file "libosmo-abis/OK"; then
-  info "Compiling libosmo-abis..." && \
+  warn "Compiling libosmo-abis..." && \
   cd libosmo-abis && \
   autoreconf -i >/dev/null && \
   ./configure >/dev/null && \
@@ -135,13 +136,13 @@ else
 fi
 
 if ! is_directory "libosmo-netif/"; then
-  info "Fetching libosmo-netif..." && \
+  warn "Creating libosmo-netif directory..." && \
   git clone git://git.osmocom.org/libosmo-netif >/dev/null
 else
   success "libosmo-netif directory already created"
 fi
 if ! is_file "libosmo-netif/OK"; then
-  info "Compiling libosmo-netif..." && \
+  warn "Compiling libosmo-netif..." && \
   cd libosmo-netif && \
   autoreconf -i >/dev/null && \
   ./configure >/dev/null && \
@@ -155,13 +156,13 @@ else
 fi
 
 if ! is_directory "libosmo-sccp/"; then
-  info "Fetching libosmo-sccp..." && \
+  warn "Creating libosmo-sccp directory..." && \
   git clone git://git.osmocom.org/libosmo-sccp >/dev/null
 else
   success "libosmo-sccp directory already created"
 fi
 if ! is_file "libosmo-sccp/OK"; then
-  info "Compiling libosmo-sccp..." && \
+  warn "Compiling libosmo-sccp..." && \
   cd libosmo-sccp && \
   autoreconf -i >/dev/null && \
   ./configure >/dev/null && \
@@ -175,13 +176,13 @@ else
 fi
 
 if ! is_directory "libsmpp34/"; then
-  info "Fetching libsmpp34..." && \
+  warn "Creating libsmpp34 directory..." && \
   git clone git://git.osmocom.org/libsmpp34 >/dev/null
 else
   success "libsmpp34 directory already created"
 fi
 if ! is_file "libsmpp34/OK"; then
-  info "Compiling libsmpp34..." && \
+  warn "Compiling libsmpp34..." && \
   cd libsmpp34 && \
   autoreconf -i >/dev/null && \
   ./configure >/dev/null && \
@@ -195,13 +196,13 @@ else
 fi
 
 if ! is_directory "osmo-mgw/"; then
-  info "Fetching osmo-mgw..." && \
+  warn "Creating osmo-mgw directory..." && \
   git clone git://git.osmocom.org/osmo-mgw >/dev/null
 else
   success "osmo-mgw directory already created"
 fi
 if ! is_file "osmo-mgw/OK"; then
-  info "Compiling osmo-mgw..." && \
+  warn "Compiling osmo-mgw..." && \
   cd osmo-mgw && \
   autoreconf -i >/dev/null && \
   ./configure >/dev/null && \
@@ -215,13 +216,13 @@ else
 fi
 
 if ! is_directory "osmo-bsc/"; then
-  info "Fetching osmo-bsc..." && \
+  warn "Creating osmo-bsc directory..." && \
   git clone git://git.osmocom.org/osmo-bsc >/dev/null
 else
   success "osmo-bsc directory already created"
 fi
 if ! is_file "osmo-bsc/OK"; then
-  info "Compiling osmo-bsc..." && \
+  warn "Compiling osmo-bsc..." && \
   cd osmo-bsc && \
   autoreconf -i >/dev/null && \
   ./configure >/dev/null && \
@@ -235,13 +236,13 @@ else
 fi
 
 if ! is_directory "osmo-hlr/"; then
-  info "Fetching osmo-hlr..." && \
+  warn "Creating osmo-hlr directory..." && \
   git clone git://git.osmocom.org/osmo-hlr >/dev/null
 else
   success "osmo-hlr directory already created"
 fi
 if ! is_file "osmo-hlr/OK"; then
-  info "Compiling osmo-hlr..." && \
+  warn "Compiling osmo-hlr..." && \
   cd osmo-hlr && \
   autoreconf -i >/dev/null && \
   ./configure >/dev/null && \
@@ -255,13 +256,13 @@ else
 fi
 
 if ! is_directory "osmo-msc/"; then
-  info "Fetching osmo-msc..." && \
+  warn "Creating osmo-msc directory..." && \
   git clone git://git.osmocom.org/osmo-msc >/dev/null
 else
   success "osmo-msc directory already created"
 fi
 if ! is_file "osmo-msc/OK"; then
-  info "Compiling osmo-msc..." && \
+  warn "Compiling osmo-msc..." && \
   cd osmo-msc && \
   autoreconf -i >/dev/null && \
   ./configure --enable-smpp >/dev/null && \
@@ -275,13 +276,13 @@ else
 fi
 
 if ! is_directory "osmo-bts/"; then
-  info "Fetching osmo-bts..." && \
+  warn "Creating osmo-bts directory..." && \
   git clone git://git.osmocom.org/osmo-bts >/dev/null
 else
   success "osmo-bts directory already created"
 fi
 if ! is_file "osmo-bts/OK"; then
-  info "Compiling osmo-bts..." && \
+  warn "Compiling osmo-bts..." && \
   cd osmo-bts && \
   autoreconf -i >/dev/null && \
   ./configure --enable-trx >/dev/null && \

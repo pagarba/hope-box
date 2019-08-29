@@ -1,11 +1,12 @@
 #!/bin/bash
 
 source $PWD/../scripts/functions.sh
+set_category "API"
 
 GO_TAR="go1.12.9.linux-amd64.tar.gz"
 
 if [ ! -d "/usr/local/go" ]; then
-  info "Installing Go..." && \
+  warn "Installing Go..." && \
   if [ ! -f "$GO_TAR" ]; then
     wget "https://dl.google.com/go/$GO_TAR"
   fi
@@ -28,7 +29,7 @@ go mod download && \
 
 PYTHON=$(which python)
 if [ -z "$PYTHON" ]; then
-  info "Installing Python..." && \
+  warn "Installing Python..." && \
   sudo apt install -y python python-pip >/dev/null
 fi
 
@@ -37,7 +38,7 @@ pip install requests >/dev/null && \
 
 REDIS=$(which redis-server)
 if [ -z "$REDIS" ]; then
-  info "Installing Redis..." && \
+  warn "Installing Redis..." && \
   sudo apt install -y redis-server >/dev/null && \
   sudo systemctl enable redis-server >/dev/null
 fi

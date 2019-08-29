@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source $PWD/../scripts/functions.sh
+set_category "WEB"
 
 info "Installing NPM libraries..." && \
 npm install >/dev/null && \
