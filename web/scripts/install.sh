@@ -6,7 +6,7 @@ set_category "WEB"
 NODE=$(which node)
 if [ -z "$NODE" ]; then
   warn "Installing Node..." && \
-  sudo apt-get install -y nodejs >/dev/null
+  sudo apt-get install -y nodejs npm >/dev/null
 else
   success "Node already installed"
 fi
