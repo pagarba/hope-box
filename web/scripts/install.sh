@@ -3,6 +3,7 @@
 source $PWD/../scripts/functions.sh
 set_category "WEB"
 
+NODE=$(which node)
 if [ -z "$NODE" ]; then
   warn "Installing Node..." && \
   sudo apt-get install -y nodejs
