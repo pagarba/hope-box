@@ -3,6 +3,13 @@
 source $PWD/../scripts/functions.sh
 set_category "WEB"
 
+if [ -z "$NODE" ]; then
+  warn "Installing Node..." && \
+  sudo apt-get install -y nodejs
+else
+  success "Node already installed"
+fi
+
 info "Installing NPM libraries..." && \
 npm install >/dev/null && \
 
