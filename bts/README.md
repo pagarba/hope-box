@@ -14,7 +14,8 @@ The two main interfaces of communication for information gathering are the `USSD
 Checkout the following to gain an overview of the different sections of the `BTS`.
 
 * `configs/` - configuration files used to run the different `Osmocom` services.
-* `pi/` - files to be copied to the `Pi` after the operating system has been burned to the SD card.
+  * `osmo/` - configuration files for the `BTS`.
+  * `pi/` - files to be copied to the `Pi` after the operating system has been burned to the SD card.
 * `scripts/` - bash scripts related to the `BTS`.
 * `smpp/` - the `SMPP` interface for `SMS` interaction in a `BTS`.
 * `ussd/` - the `USSD` interface that provides the `ESI` questionnaire.
@@ -55,6 +56,10 @@ To start the base transceiver station please run `bash scripts/start.sh`.  This 
 In another terminal execute `bash scripts/ussd.sh` to build and run the `USSD Gateway` that interfaces with `USSD` and provides the questionnaire.
 
 In the third terminal run `python smpp/main.py` to run the `SMPP Gateway` that interfaces with `SMS` to provide interfacing such things as a `Chatbot` powered by `AI` for example.
+
+## Stop
+
+To stop the running services run `bash scripts/stop.sh`.
 
 
 ## Clean

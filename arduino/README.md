@@ -1,4 +1,4 @@
-# Arduino
+# HopeBox - Arduino
 
 ## Outline
 

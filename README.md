@@ -11,12 +11,14 @@
 
 ### Modules:
 
-* [Arduino](arduino/)
-* [Base Transceiver Station](bts/)
-* [Command Center](cc/)
-* [Supporting Documents](docs/)
-* [Example Idea Code](examples/)
-* [Bash Scripts](scripts/)
+* [API](api/README.md)
+* [Arduino](arduino/README.md)
+* [Base Transceiver Station](bts/README.md)
+* [Command Center](cc/README.md)
+* [Supporting Documents](docs/README.md)
+* [Examples](examples/README.md)
+* [Bash Scripts](scripts/README.md)
+* [Website](web/README.md)
 
 ## Overview
 
@@ -42,10 +44,6 @@ The following a basic outline of the current implemented features in the `HopeBo
   - The network will assign connected mobile devices to allow for voice communication if pursued.
 * Collect `Emergency Severity Index (ESI)` information for first responders and transmit over a LoRa mesh-network to the `CC`.
   - For more information please checkout the [USSD Gateway](bts/ussd/) documentation.
-* Provide simple tweet like communication between responders and mobile users over a LoRa mesh-network.
-  - Tweet being that messages are limited to `200 bytes` each to allow for header/meta information.
-  - Packet transmission over LoRA can take up to `2 seconds` each.
-* In progress, more to come...
 
 
 ## Future Ideas

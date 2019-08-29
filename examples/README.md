@@ -1,4 +1,4 @@
-# HopeBox - Example Idea Code
+# HopeBox - Examples
 
 Some code to prove different concepts on different platforms using different languages.
 
