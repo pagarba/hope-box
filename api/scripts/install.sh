@@ -25,7 +25,7 @@ info "Installing Go libraries..." && \
 #go get github.com/jinzhu/gorm && \
 #go get github.com/mattn/go-sqlite3 && \
 #go get github.com/spf13/viper && \
-go mod download && \
+#go mod download && \
 
 PYTHON=$(which python)
 if [ -z "$PYTHON" ]; then
