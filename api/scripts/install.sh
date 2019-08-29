@@ -30,7 +30,7 @@ info "Installing Go libraries..." && \
 PYTHON=$(which python)
 if [ -z "$PYTHON" ]; then
   warn "Installing Python..." && \
-  sudo apt-get install -y python python-pip >/dev/null
+  sudo apt-get install -y python python-pip python-distutils python3-distutils >/dev/null
 fi
 
 info "Installing Python libraries..." && \
