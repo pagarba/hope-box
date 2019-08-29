@@ -30,7 +30,7 @@ go mod download && \
 PYTHON=$(which python)
 if [ -z "$PYTHON" ]; then
   warn "Installing Python..." && \
-  sudo apt install -y python python-pip >/dev/null
+  sudo apt-get install -y python python-pip >/dev/null
 fi
 
 info "Installing Python libraries..." && \
@@ -39,7 +39,7 @@ pip install requests >/dev/null && \
 REDIS=$(which redis-server)
 if [ -z "$REDIS" ]; then
   warn "Installing Redis..." && \
-  sudo apt install -y redis-server >/dev/null && \
+  sudo apt-get install -y redis-server >/dev/null && \
   sudo systemctl enable redis-server >/dev/null
 fi
 
