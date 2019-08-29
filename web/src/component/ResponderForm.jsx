@@ -38,7 +38,7 @@ export default class ResponderForm extends CoreForm {
         <ModalBody>
           <Form>
             <FormGroup>
-              <label htmlFor="imsi">International Mobile Subscriber Identity (IMSI)</label>
+              <label htmlFor="imsi">IMSI</label>
               <FormInput
                 id="imsi"
                 onChange={this.handleChange}
@@ -48,7 +48,7 @@ export default class ResponderForm extends CoreForm {
                 value={this.state.imsi} />
             </FormGroup>
             <FormGroup>
-              <label htmlFor="msisdn">Mobile Station International Subscriber Directory Number (MSISDN)</label>
+              <label htmlFor="msisdn">MSISDN</label>
               <FormInput
                 id="msisdn"
                 onChange={this.handleChange}

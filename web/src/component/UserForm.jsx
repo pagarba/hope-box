@@ -43,11 +43,11 @@ export default class UserForm extends CoreForm {
             <Row>
               <Col>
                 <FormGroup>
-                  <label htmlFor="bts">Base Transceiver Station (BTS)</label>
+                  <label htmlFor="bts">BTS</label>
                   <FormSelect
                     id="bts"
                     onChange={this.handleChange}
-                    placeholder="0"
+                    placeholder="Connected BTS"
                     size="sm"
                     value={this.state.bts}>
                     <option value="0">0</option>
@@ -59,11 +59,11 @@ export default class UserForm extends CoreForm {
               </Col>
               <Col>
                 <FormGroup>
-                  <label htmlFor="esi">Emergency Severity Index (ESI)</label>
+                  <label htmlFor="esi">ESI</label>
                   <FormSelect
                     id="esi"
                     onChange={this.handleChange}
-                    placeholder="0"
+                    placeholder="Emergency Severity Index"
                     size="sm"
                     value={this.state.esi}>
                     <option value="0">0</option>
@@ -79,11 +79,11 @@ export default class UserForm extends CoreForm {
             <Row>
               <Col>
                 <FormGroup>
-                  <label htmlFor="imsi">International Mobile Subscriber Identity (IMSI)</label>
+                  <label htmlFor="imsi">IMSI</label>
                   <FormInput
                     id="imsi"
                     onChange={this.handleChange}
-                    placeholder="000000000000000"
+                    placeholder="Mobile Device Identifier"
                     size="sm"
                     type="text"
                     value={this.state.imsi} />
@@ -91,11 +91,11 @@ export default class UserForm extends CoreForm {
               </Col>
               <Col>
                 <FormGroup>
-                  <label htmlFor="msisdn">Mobile Station International Subscriber Directory Number (MSISDN)</label>
+                  <label htmlFor="msisdn">MSISDN</label>
                   <FormInput
                     id="msisdn"
                     onChange={this.handleChange}
-                    placeholder="123456"
+                    placeholder="Phone Number"
                     size="sm"
                     type="text"
                     value={this.state.msisdn} />
@@ -109,7 +109,7 @@ export default class UserForm extends CoreForm {
                   <FormInput
                     id="latitude"
                     onChange={this.handleChange}
-                    placeholder="34.0522342"
+                    placeholder="Longitude"
                     size="sm"
                     type="text"
                     value={this.state.latitude} />
@@ -121,7 +121,7 @@ export default class UserForm extends CoreForm {
                   <FormInput
                     id="longitude"
                     onChange={this.handleChange}
-                    placeholder="-118.2436849"
+                    placeholder="Latitude"
                     size="sm"
                     type="text"
                     value={this.state.longitude} />
@@ -133,7 +133,7 @@ export default class UserForm extends CoreForm {
               <FormInput
                 id="name"
                 onChange={this.handleChange}
-                placeholder="John Doe"
+                placeholder="User Name or Nickname"
                 size="sm"
                 type="text"
                 value={this.state.name} />

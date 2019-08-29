@@ -42,7 +42,7 @@ export default class StationForm extends CoreForm {
                   <FormInput
                     id="latitude"
                     onChange={this.handleChange}
-                    placeholder="34.0522342"
+                    placeholder="Latitude"
                     size="sm"
                     type="text"
                     value={this.state.latitude} />
@@ -54,7 +54,7 @@ export default class StationForm extends CoreForm {
                   <FormInput
                     id="longitude"
                     onChange={this.handleChange}
-                    placeholder="-118.2436849"
+                    placeholder="Longitude"
                     size="sm"
                     type="text"
                     value={this.state.longitude} />
@@ -66,7 +66,7 @@ export default class StationForm extends CoreForm {
               <FormInput
                 id="name"
                 onChange={this.handleChange}
-                placeholder="BTS 1"
+                placeholder="BTS Name"
                 size="sm"
                 type="text"
                 value={this.state.name} />

@@ -23,14 +23,24 @@ class _Map extends React.Component {
 
     this.state = {
       filter: {responders: true, stations: true, users: true},
-      lat: C.LATITUDE,
-      lon: C.LONGITUDE,
+      latitude: C.LATITUDE,
+      longitude: C.LONGITUDE,
       markers: [],
       zoom: C.ZOOM,
     }
   }
 
   componentWillMount() {
+    const {latitude, longitude} = this.props.settings
+    if (!!latitude && !!longitude) {
+      this.setState({
+        latitude: parseFloat(latitude),
+        longitude: parseFloat(longitude),
+      })
+    }
+  }
+
+  componentDidMount() {
     this.loadData()
   }
 
@@ -63,8 +73,8 @@ class _Map extends React.Component {
         popup: `Responder: ${data.id}`,
         props: {
           position: [
-            data.latitude || C.LATITUDE,
-            data.longitude || C.LONGITUDE,
+            data.latitude || this.state.latitude,
+            data.longitude || this.state.longitude,
           ],
           zIndexOffset: 20,
         },
@@ -109,7 +119,7 @@ class _Map extends React.Component {
   }
 
   render() {
-    const position = [this.state.lat, this.state.lon]
+    const position = [this.state.latitude, this.state.longitude]
 
     return (
       <div>
@@ -179,6 +189,7 @@ const mapDispatch = dispatch => ({
 
 const mapState = state => ({
   responders: state.responders,
+  settings: state.settings,
   stations: state.stations,
   users: state.users,
 })

@@ -8,6 +8,7 @@ const error = (dispatch, err) => {
 }
 
 export const clearError = () => dispatch => dispatch({payload: null, type: C.ERROR})
+export const setError = payload => dispatch => dispatch({payload, type: C.ERROR})
 
 // Responder
 
@@ -19,7 +20,6 @@ export const deleteResponder = id => dispatch => {
 export const getResponder = (limit, skip) => dispatch => {
   return GET('/responder', {query: {limit, skip}})
     .then(res => {
-      console.log(res)
       dispatch({payload: res.result, type: C.RESPONDERS})
       return res.result
     })
@@ -33,6 +33,22 @@ export const postResponder = data => dispatch => {
 
 export const putResponder = data => dispatch => {
   return PUT('/responder', data)
+    .catch(err => error(dispatch, err))
+}
+
+// Settings
+
+export const getSettings = (limit, skip) => dispatch => {
+  return GET('/settings', {query: {limit, skip}})
+    .then(res => {
+      dispatch({payload: res.result, type: C.SETTINGS})
+      return res.result
+    })
+    .catch(err => error(dispatch, err))
+}
+
+export const putSettings = data => dispatch => {
+  return PUT('/settings', data)
     .catch(err => error(dispatch, err))
 }
 
@@ -90,10 +106,13 @@ export const putUser = data => dispatch => {
 
 export default {
   clearError,
+  setError,
   deleteResponder,
   getResponder,
   postResponder,
   putResponder,
+  getSettings,
+  putSettings,
   deleteStation,
   getStation,
   postStation,

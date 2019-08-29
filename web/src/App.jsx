@@ -8,7 +8,7 @@ import React from 'react'
 import {HashRouter, Route, Switch, withRouter} from 'react-router-dom'
 
 import {Alert} from 'shards-react'
-import {clearError} from './lib/actions'
+import {clearError, getSettings, setError} from './lib/actions'
 import Dashboard from './container/Dashboard'
 import _Map from './container/Map'
 import Navigation from './component/Navigation'
@@ -23,6 +23,14 @@ const RedirectToDashboard = withRouter(({history}) => {
 })
 
 class App extends React.Component {
+  componentDidMount() {
+    this.props._getSettings().then(res => {
+      if (!res || !res.id) {
+        this.props.updateError('To center the map correctly please update the settings.')
+      }
+    })
+  }
+
   handleClose = ev => {
     ev.preventDefault()
     this.props.removeError()
@@ -55,11 +63,14 @@ class App extends React.Component {
 }
 
 const mapDispatch = dispatch => ({
-  removeError: () => dispatch(clearError())
+  _getSettings: () => dispatch(getSettings()),
+  removeError: () => dispatch(clearError()),
+  updateError: err => dispatch(setError(err)),
 })
 
 const mapState = state => ({
   error: state.error,
+  settings: state.settings,
 })
 
 export default connect(mapState, mapDispatch)(App)
