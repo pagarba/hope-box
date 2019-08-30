@@ -13,11 +13,13 @@ export const setError = payload => dispatch => dispatch({payload, type: C.ERROR}
 // Responder
 
 export const deleteResponder = id => dispatch => {
+  clearError()
   return DELETE('/responder', {query: {id}})
     .catch(err => error(dispatch, err))
 }
 
 export const getResponder = (limit, skip) => dispatch => {
+  clearError()
   return GET('/responder', {query: {limit, skip}})
     .then(res => {
       dispatch({payload: res.result, type: C.RESPONDERS})
@@ -27,11 +29,13 @@ export const getResponder = (limit, skip) => dispatch => {
 }
 
 export const postResponder = data => dispatch => {
+  clearError()
   return POST('/responder', data)
     .catch(err => error(dispatch, err))
 }
 
 export const putResponder = data => dispatch => {
+  clearError()
   return PUT('/responder', data)
     .catch(err => error(dispatch, err))
 }
@@ -39,6 +43,7 @@ export const putResponder = data => dispatch => {
 // Settings
 
 export const getSettings = (limit, skip) => dispatch => {
+  clearError()
   return GET('/settings', {query: {limit, skip}})
     .then(res => {
       dispatch({payload: res.result, type: C.SETTINGS})
@@ -48,6 +53,7 @@ export const getSettings = (limit, skip) => dispatch => {
 }
 
 export const putSettings = data => dispatch => {
+  clearError()
   return PUT('/settings', data)
     .catch(err => error(dispatch, err))
 }
@@ -55,11 +61,13 @@ export const putSettings = data => dispatch => {
 // Station
 
 export const deleteStation = id => dispatch => {
+  clearError()
   return DELETE('/station', {query: {id}})
     .catch(err => error(dispatch, err))
 }
 
 export const getStation = (limit, skip) => dispatch => {
+  clearError()
   return GET('/station', {query: {limit, skip}})
     .then(res => {
       dispatch({payload: res.result, type: C.STATIONS})
@@ -69,11 +77,13 @@ export const getStation = (limit, skip) => dispatch => {
 }
 
 export const postStation = data => dispatch => {
+  clearError()
   return POST('/station', data)
     .catch(err => error(dispatch, err))
 }
 
 export const putStation = data => dispatch => {
+  clearError()
   return PUT('/station', data)
     .catch(err => error(dispatch, err))
 }
@@ -81,11 +91,13 @@ export const putStation = data => dispatch => {
 // User
 
 export const deleteUser = id => dispatch => {
+  clearError()
   return DELETE('/user', {query: {id}})
     .catch(err => error(dispatch, err))
 }
 
 export const getUser = (limit, skip) => dispatch => {
+  clearError()
   return GET('/user', {query: {limit, skip}})
     .then(res => {
       dispatch({payload: res.result, type: C.USERS})
@@ -95,11 +107,13 @@ export const getUser = (limit, skip) => dispatch => {
 }
 
 export const postUser = data => dispatch => {
+  clearError()
   return POST('/user', data)
     .catch(err => error(dispatch, err))
 }
 
 export const putUser = data => dispatch => {
+  clearError()
   return PUT('/user', data)
     .catch(err => error(dispatch, err))
 }

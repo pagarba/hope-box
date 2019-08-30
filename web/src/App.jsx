@@ -22,6 +22,18 @@ const RedirectToDashboard = withRouter(({history}) => {
   return null
 })
 
+const Routes = () => (
+  <Switch>
+    <Route component={Dashboard} path="/dashboard" />
+    <Route component={_Map} path="/map" />
+    <Route component={Responders} path="/responders" />
+    <Route component={Stations} path="/stations" />
+    <Route component={Settings} path="/settings" />
+    <Route component={Users} path="/users" />
+    <Route component={RedirectToDashboard} exact path="/" />
+  </Switch>
+)
+
 class App extends React.Component {
   componentDidMount() {
     this.props._getSettings().then(res => {
@@ -31,15 +43,21 @@ class App extends React.Component {
     })
   }
 
+  componentWillUpdate(nextProps) {
+    console.log(nextProps)
+  }
+
   handleClose = ev => {
     ev.preventDefault()
     this.props.removeError()
   }
 
   render() {
+    const ok = !!this.props.settings.latitude && !!this.props.settings.longitude
+
     return (
       <HashRouter>
-        <Navigation title="HopeBox" version={config.version} />
+        {ok && <Navigation title="HopeBox" version={config.version} />}
         <div className="content" style={{margin: 0, padding: 10}}>
           <Alert
             dismissible={this.handleClose}
@@ -47,15 +65,7 @@ class App extends React.Component {
             theme="danger">
             {this.props.error}
           </Alert>
-          <Switch>
-            <Route component={Dashboard} path="/dashboard" />
-            <Route component={_Map} path="/map" />
-            <Route component={Responders} path="/responders" />
-            <Route component={Stations} path="/stations" />
-            <Route component={Settings} path="/settings" />
-            <Route component={Users} path="/users" />
-            <Route component={RedirectToDashboard} exact path="/" />
-          </Switch>
+          {ok ? <Routes /> : <Settings />}
         </div>
       </HashRouter>
     )

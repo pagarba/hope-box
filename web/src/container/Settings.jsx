@@ -73,7 +73,7 @@ class Settings extends React.Component {
         latitude: this.state.latitude.toString(),
         longitude: this.state.longitude.toString(),
       })
-      .then(this._getSettings)
+      .then(this.props._getSettings)
   }
 
   render() {
