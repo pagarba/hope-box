@@ -1,5 +1,10 @@
 
-export const API_HOST = 'http://localhost:4000'
+let origin = window.location.origin
+if (origin === 'http://localhost:3000') {
+  origin = 'http://192.168.0.166:4000' //'http://localhost:4000'
+}
+
+export const API_HOST = origin
 
 export default {
   API_HOST,

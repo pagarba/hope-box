@@ -88,8 +88,8 @@ class _Map extends React.Component {
         popup: `User: ${data.id}`,
         props: {
           position: [
-            data.latitude || bts[data.bts].latitude,
-            data.longitude || bts[data.bts].longitude,
+            !!data.latitude ? data.latitude : !!bts[data.bts] ? bts[data.bts].latitude : this.state.latitude,
+            !!data.longitude ? data.longitude : !!bts[data.bts] ? bts[data.bts].longitude : this.state.longitude,
           ],
           zIndexOffset: 10,
         },
