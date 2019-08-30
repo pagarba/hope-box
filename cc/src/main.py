@@ -19,8 +19,10 @@ PyLora.set_sync_word(0x12)
 ip = 'http://0.0.0.0:4000'
 max = 200
 port = 4000
-stubLat ='35.254030261211476'
-stubLon ='-80.75157165527345'
+#stubLat ='35.254030261211476'
+#stubLon ='-80.75157165527345'
+stubLat =''
+stubLon =''
 headers = {
     'Content-Type': 'application/json',
     'Authorization': 'Bearer NONE'
@@ -82,7 +84,7 @@ while True:
         time.sleep(0)
     rec = PyLora.receive_packet()
     try:
-        print(rec.decode())
+        print('LoRa Recv:', rec.decode())
         handle(rec.decode())
         #print('Packet:', bytes(rec).decode())
     except:
