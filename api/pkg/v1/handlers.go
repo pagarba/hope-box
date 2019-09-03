@@ -196,6 +196,18 @@ func postUser(c *gin.Context) {
 	replyOK(c, gin.H{"result": v})
 }
 
+func postUserSMS(c *gin.Context) {
+	v := new(data.SMS)
+	c.MustBindWith(v, binding.JSON)
+
+	if err := data.Create(v); err != nil {
+		replyError(c, err)
+		return
+	}
+
+	replyOK(c, gin.H{"result": v})
+}
+
 func putUser(c *gin.Context) {
 	v := new(data.User)
 	c.MustBindWith(v, binding.JSON)

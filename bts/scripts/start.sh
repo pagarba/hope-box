@@ -15,8 +15,8 @@ sudo osmo-msc -c configs/osmo/osmo-msc.cfg -D
 info "Starting osmo-stp..."
 sudo osmo-stp -c configs/osmo/osmo-stp.cfg -D
 
-#info "Starting osmo-mgw..."
-#sudo osmo-mgw -c configs/osmo/osmo-mgw.cfg -D
+info "Starting osmo-mgw..."
+sudo osmo-mgw -c configs/osmo/osmo-mgw-bsc.cfg -D
 
 info "Starting osmo-bsc..."
 sudo osmo-bsc -c configs/osmo/osmo-bsc.cfg -D

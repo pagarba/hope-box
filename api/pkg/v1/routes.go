@@ -24,6 +24,7 @@ func routes(r *gin.Engine) {
 	r.DELETE("/user", deleteUser)
 	r.GET("/user", getUser)
 	r.POST("/user", postUser)
+	r.POST("/user/sms", postUserSMS)
 	r.PUT("/user", putUser)
 	r.PUT("/user/esi", putUserESI)
 	// USSD
