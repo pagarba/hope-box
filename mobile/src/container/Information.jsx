@@ -11,7 +11,7 @@ class Information extends React.Component {
     for(let i = 0; i < keys.length; i++) {
       const key = keys[i]
       comps.push(
-        <p className={key <= (step + 0.99) ? 'show' : ''} key={`${i}`}>
+        <p className={key <= (step + 0.999) ? 'show' : ''} key={`${i}`}>
           <div dangerouslySetInnerHTML={{__html: texts[key]}} />
         </p>
       )
