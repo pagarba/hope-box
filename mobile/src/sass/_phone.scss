@@ -1,0 +1,231 @@
+
+.phone {
+  margin-left: 1vw;
+  z-index: 1;
+
+  a {
+    color: $success;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  .background {
+    img {
+      height: 100vh;
+      width: auto;
+    }
+  }
+
+  .content {
+    background-color: $black;
+    color: $white;
+    height: 514px;
+    left: 34px;
+    padding: 1vh 1vw;
+    position: absolute;
+    top: 88px;
+    transition: $animation;
+    width: 298px;
+
+    .buttons {
+      bottom: 0;
+      display: flex;
+      flex-direction: row;
+      height: 32px;
+      justify-content: space-around;
+      left: 0;
+      margin-bottom: 1vh;
+      position: absolute;
+      right: 0;
+
+      .button {
+        background: none;
+        border: none;
+        color: $white;
+        line-height: 32px;
+      }
+    }
+
+    .toolbar {
+      background-color: $secondary;
+      color: $white;
+      height: 24px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      div {
+        display: inline-block;
+        padding: 0 1vw;
+      }
+
+      i {
+        margin-right: 0.1vw;
+      }
+
+      .right {
+        position: absolute;
+        right: 0;
+        text-align: right;
+      }
+    }
+  }
+
+  .dialpad {
+    background-color: $white;
+    z-index: 1000;
+
+    .digits {
+      height: 100%;
+      padding-top: 1vh;
+      width: 100%;
+
+      .digit {
+        height: 64px;
+        border: 1px solid $gray;
+        border-radius: 50%;
+        text-align: center;
+        width: 64px;
+
+        &:active, &:focus, &:hover {
+          background-color: darken($white, 3%);
+          border-color: darken($gray, 20%);
+        }
+
+        &.active {
+          a { color: darken($gray, 20%); }
+        }
+
+        &.close, &.reset, &.send {
+          border-radius: 1rem;
+          height: 48px;
+          margin: 2vh 1vw;
+          width: 100%;
+
+          a {
+            font-size: 1.5rem;
+            line-height: 48px;
+          }
+        }
+
+        &.reset {
+          background-color: $danger;
+
+          &:hover { background-color: darken($danger, 3%); }
+
+          a { color: $white; }
+        }
+
+        &.send {
+          background-color: $success;
+
+          &:hover { background-color: darken($success, 3%); }
+
+          a { color: $white; }
+        }
+
+        a {
+          color: lighten($gray, 20%);
+          font-size: 2rem;
+          line-height: 64px;
+        }
+      }
+    }
+
+    .number {
+      border-bottom: 1px solid $gray;
+      color: $success;
+      height: 64px;
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 1vh 2vw;
+      text-align: right;
+    }
+  }
+
+  .messages {
+    background-color: $white;
+    color: $black;
+    height: 514px;
+    line-height: 32px;
+    max-height: 514px;
+    overflow: hidden;
+    width: 298px;
+    z-index: 5000;
+
+    .conversation {
+      height: 514px - 32px - 32px;
+      margin: 0;
+      max-height: 514px - 32px - 32px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: 1vh 0;
+
+      .message {
+        background-color: lighten($success, 53%);
+        border: 1px solid $light-gray;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 1rem;
+        border-top-left-radius: 0;
+        border-top-right-radius: 1rem;
+        font-size: 0.75rem;
+        line-height: 0.8rem;
+        margin: 1vh 64px 1vh 0;
+        padding: 1vh 1vw;
+        transform: $animation;
+
+        &.from {
+          background-color: lighten($primary, 52%);
+          border-bottom-left-radius: 1rem;
+          border-bottom-right-radius: 0;
+          border-top-left-radius: 1rem;
+          border-top-right-radius: 0;
+          margin: 1vh 0 1vh 64px;
+
+          b { color: $primary; }
+        }
+
+        b {
+          color: $success;
+          font-size: 0.8rem;
+          font-weight: bolder;
+        }
+      }
+    }
+
+    .input {
+      background-color: $light-gray;
+      border-top: 1px solid $gray;
+      height: 32px;
+      padding-left: 1vw;
+      width: 100%;
+
+      .send {
+        padding-right: 1vw;
+      }
+    }
+
+    .to {
+      background-color: $light-gray;
+      border-bottom: 1px solid $gray;
+      height: 32px;
+      padding-left: 1vw;
+      width: 100%;
+
+      b {
+        font-size: 24px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .sms {
+  }
+
+  .ussd {
+    z-index: 5000;
+  }
+}

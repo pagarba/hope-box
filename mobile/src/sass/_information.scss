@@ -1,0 +1,25 @@
+
+.information {
+  background-color: $black;
+  color: darken($white, 20%);
+  height: 100vh;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .content {
+    padding: 1vh 1vw;
+
+    p {
+      max-height: 0;
+      opacity: 0.0;
+      transition: none;
+
+      &.show {
+        max-height: 100%;
+        opacity: 1.0;
+        transition: opacity 2s ease 500ms;
+      }
+    }
+  }
+}

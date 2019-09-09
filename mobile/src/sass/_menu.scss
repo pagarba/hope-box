@@ -1,0 +1,59 @@
+
+.menu {
+  background-color: $black;
+  bottom: 0;
+  left: 0;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  transform: $animation;
+  width: 100%;
+  z-index: 3;
+
+  @media (max-width: $breakpoint) {
+    width: 100vw;
+  }
+
+  .divider {
+    background-color: $gray;
+    height: 1px;
+  }
+
+  .links {
+    text-align: center;
+
+    a {
+      border-bottom: 1px solid darken($gray, 30%);
+      color: $gray;
+      font-size: 1.5rem;
+      padding: 1vh 0;
+      width: 100%;
+
+      &:hover {
+        background-color: lighten($black, 5%);
+        color: $white;
+      }
+
+      &:last-child {
+        border: 0;
+      }
+    }
+  }
+
+  .logo {
+    margin: 0 0 2vh 0;
+    padding: 0;
+    text-align: center;
+
+    img {
+      height: auto;
+      margin-left: 50%;
+      margin-top: 2vh;
+      opacity: 0.5;
+      transform: translateX(-50%);
+      width: 6vw;
+    }
+  }
+}

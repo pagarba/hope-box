@@ -1,0 +1,15 @@
+
+$menu-width: 200px;
+
+.container {
+  height: 100vh;
+  padding-left: $menu-width;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+
+  @media (max-width: $breakpoint) {
+    padding-left: 0;
+  }
+}
